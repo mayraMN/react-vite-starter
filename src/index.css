@@ -39,6 +39,8 @@
   --color-brand-800: #212021;
   --color-brand-900: #030303;
 
+  --icon-types-grass: '/types/grass.png'
+
   --spacing-3xs: 0.125rem; /* 2px */
   --spacing-2xs: 0.25rem; /* 4px */
   --spacing-xs: 0.5rem; /* 8px */
@@ -63,6 +65,12 @@
   --font-weight-link: 600;
   --font-weight-body: 400;
   --font-weight-caption: 400;
+
+  /* Shadows */
+
+  /* Icons */
+
+  /* Radius */
 }
 
 @media (max-width: 768px) {
