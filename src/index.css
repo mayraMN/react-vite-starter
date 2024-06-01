@@ -39,8 +39,6 @@
   --color-brand-800: #212021;
   --color-brand-900: #030303;
 
-  --icon-types-grass: '/types/grass.png'
-
   --spacing-3xs: 0.125rem; /* 2px */
   --spacing-2xs: 0.25rem; /* 4px */
   --spacing-xs: 0.5rem; /* 8px */
@@ -67,10 +65,22 @@
   --font-weight-caption: 400;
 
   /* Shadows */
-
-  /* Icons */
+  --shadow-s: 0px 2px 3px -1px var(--color-accent),
+    0px 5px 10px -2px var(--color-accent);
+  --shadow-s: 0px 4px 6px -2px var(--color-accent),
+    0px 10px 15px -3px var(--color-accent);
+  --shadow-s: 0px 6px 8px -3px var(--color-accent),
+    0px 15px 20px -5px var(--color-accent);
 
   /* Radius */
+
+  --radius-2xs: 4px;
+  --radius-xs: 8px;
+  --radius-s: 12px;
+  --radius-m: 16px;
+  --radius-l: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
 }
 
 @media (max-width: 768px) {

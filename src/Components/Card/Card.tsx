@@ -17,20 +17,23 @@ export const Card = () => {
           <div>6.9kg</div>
           <div>0.7m</div>
         </div>
-        <div>
-          <label>Hp</label>
-          <progress value="20" max="250">
-            20%
-          </progress>
-          <label>Hp</label>
-          <progress value="20" max="250">
-            20%
-          </progress>
-          <label>Hp</label>
-          <progress value="20" max="250">
-            20%
-          </progress>
-        </div>
+        <ul>
+          <li>
+            <label>HP</label>
+            <div>045</div>
+            <progress value="20" max="255" />
+          </li>
+          <li>
+            <label>HP</label>
+            <div>045</div>
+            <progress value="20" max="255" />
+          </li>
+          <li>
+            <label>HP</label>
+            <div>045</div>
+            <progress value="20" max="255" />
+          </li>
+        </ul>
       </div>
     </article>
   )
