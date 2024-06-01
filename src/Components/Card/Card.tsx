@@ -1,17 +1,17 @@
-// import bulbasaur from '../../public'
+import styles from './Card.module.css'
 
 export const Card = () => {
   return (
-    <article className="card">
-      <header className="card-header">
-        <h2 className="pokemon-name">Bulbasaur</h2>
-        <div className="pokemon-number">#001</div>
+    <article className={styles.card}>
+      <header className={styles['card-header']}>
+        <h2 className={styles['pokemon-name']}>Bulbasaur</h2>
+        <div className={styles['pokemon-number']}>#001</div>
       </header>
-      <img className="pokemon-image" src="/bulbasaur.png" alt="" />
-      <div>
-        <div className="pokemon-types">
-          <div className="pokemon-type-grass">Grass</div>
-          <div className="pokemon-type-poison">Poison</div>
+      {/* <img className="pokemon-image" src="/bulbasaur.png" alt="" /> */}
+      <div className={styles['card-info']}>
+        <div className={styles['pokemon-types']}>
+          <div className={styles['pokemon-type-grass']}>Grass</div>
+          <div className={styles['pokemon-type-poison']}>Poison</div>
         </div>
         <div className="pokemon-chars">
           <div className="pokemon-char-weight">6.9kg</div>

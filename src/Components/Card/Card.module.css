@@ -1,0 +1,69 @@
+.card {
+  width: 285px;
+  height: 400px;
+
+  padding: var(--spacing-xs);
+
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-s);
+  background-color: var(--color-type-grass);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 var(--spacing-xs);
+}
+
+.pokemon-name {
+  font-size: var(--font-size-headline);
+  line-height: var(--font-line-height-headline);
+  font-weight: var(--font-weight-headline);
+
+  color: var(--color-brand-0);
+}
+
+.pokemon-number {
+  font-size: var(--font-size-subheadline);
+  line-height: var(--font-line-height-subheadline);
+  font-weight: var(--font-weight-subheadline);
+
+  color: var(--color-brand-0);
+  opacity: 50%;
+}
+
+.card-info {
+  background: var(--color-brand-0);
+}
+
+.pokemon-types {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2xs);
+}
+
+.pokemon-type-grass {
+  font-size: var(--font-size-caption);
+  line-height: var(--font-line-height-caption);
+  font-weight: var(--font-weight-caption);
+
+  padding: var(--spacing-3xs) var(--spacing-xs);
+
+  color: var(--color-brand-0);
+  background-color: var(--color-type-grass);
+  border-radius: var(--radius-2xl);
+}
+
+.pokemon-type-poison {
+  font-size: var(--font-size-caption);
+  line-height: var(--font-line-height-caption);
+  font-weight: var(--font-weight-caption);
+
+  padding: var(--spacing-3xs) var(--spacing-xs);
+
+  color: var(--color-brand-0);
+  background-color: var(--color-type-poison);
+  border-radius: var(--radius-2xl);
+}
