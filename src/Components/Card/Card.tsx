@@ -13,9 +13,9 @@ export const Card = () => {
           <div className={styles['pokemon-type-grass']}>Grass</div>
           <div className={styles['pokemon-type-poison']}>Poison</div>
         </div>
-        <div className="pokemon-chars">
-          <div className="pokemon-char-weight">6.9kg</div>
-          <div className="pokemon-char-lenght">0.7m</div>
+        <div className={styles['pokemon-chars']}>
+          <div className={styles['pokemon-char-weight']}>6.9kg</div>
+          <div className={styles['pokemon-char-lenght']}>0.7m</div>
         </div>
         <ul className="pokemon-stats">
           <li className="pokemon-stat-item">
