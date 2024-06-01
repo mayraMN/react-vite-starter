@@ -2,33 +2,33 @@
 
 export const Card = () => {
   return (
-    <article>
-      <header>
-        <h2>Bulbasaur</h2>
-        <div>#001</div>
+    <article className="card">
+      <header className="card-header">
+        <h2 className="pokemon-name">Bulbasaur</h2>
+        <div className="pokemon-number">#001</div>
       </header>
-      <img src="/bulbasaur.png" alt="" />
+      <img className="pokemon-image" src="/bulbasaur.png" alt="" />
       <div>
-        <div>
-          <div>Grass</div>
-          <div>Poison</div>
+        <div className="pokemon-types">
+          <div className="pokemon-type-grass">Grass</div>
+          <div className="pokemon-type-poison">Poison</div>
         </div>
-        <div>
-          <div>6.9kg</div>
-          <div>0.7m</div>
+        <div className="pokemon-chars">
+          <div className="pokemon-char-weight">6.9kg</div>
+          <div className="pokemon-char-lenght">0.7m</div>
         </div>
-        <ul>
-          <li>
+        <ul className="pokemon-stats">
+          <li className="pokemon-stat-item">
             <label>HP</label>
             <div>045</div>
             <progress value="20" max="255" />
           </li>
-          <li>
+          <li className="pokemon-stat-item">
             <label>HP</label>
             <div>045</div>
             <progress value="20" max="255" />
           </li>
-          <li>
+          <li className="pokemon-stat-item">
             <label>HP</label>
             <div>045</div>
             <progress value="20" max="255" />
