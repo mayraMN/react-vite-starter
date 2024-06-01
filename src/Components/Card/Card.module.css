@@ -17,7 +17,7 @@
   padding: 0 var(--spacing-xs);
 }
 
-.pokemon-name {
+.name {
   font-size: var(--font-size-headline);
   line-height: var(--font-line-height-headline);
   font-weight: var(--font-weight-headline);
@@ -25,7 +25,7 @@
   color: var(--color-brand-0);
 }
 
-.pokemon-number {
+.number {
   font-size: var(--font-size-subheadline);
   line-height: var(--font-line-height-subheadline);
   font-weight: var(--font-weight-subheadline);
@@ -41,13 +41,13 @@
   border-radius: var(--radius-l);
 }
 
-.pokemon-types {
+.tags {
   display: flex;
   justify-content: center;
   gap: var(--spacing-2xs);
 }
 
-.pokemon-type-grass {
+.tag {
   font-size: var(--font-size-caption);
   line-height: var(--font-line-height-caption);
   font-weight: var(--font-weight-caption);
@@ -55,36 +55,63 @@
   padding: var(--spacing-3xs) var(--spacing-xs);
 
   color: var(--color-brand-0);
-  background-color: var(--color-type-grass);
   border-radius: var(--radius-2xl);
+
+  &.poison {
+    background-color: var(--color-type-poison);
+  }
+  &.grass {
+    background-color: var(--color-type-grass);
+  }
 }
 
-.pokemon-type-poison {
-  font-size: var(--font-size-caption);
-  line-height: var(--font-line-height-caption);
-  font-weight: var(--font-weight-caption);
-
-  padding: var(--spacing-3xs) var(--spacing-xs);
-
-  color: var(--color-brand-0);
-  background-color: var(--color-type-poison);
-  border-radius: var(--radius-2xl);
-}
-
-.pokemon-chars {
+.chars {
   display: flex;
   justify-content: center;
   gap: var(--spacing-m);
 }
 
-.pokemon-char-weight {
+.char-weight {
   font-size: var(--font-size-caption);
   line-height: var(--font-line-height-caption);
   font-weight: var(--font-weight-caption);
 }
 
-.pokemon-char-lenght {
+.char-length {
   font-size: var(--font-size-caption);
   line-height: var(--font-line-height-caption);
   font-weight: var(--font-weight-caption);
+}
+
+.stats {
+  gap: var(--spacing-3xs);
+}
+
+.stat-item {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.stat-item > progress {
+  width: 100%;
+  /* height: var(--spacing-2xs);
+  border-radius: var(--spacing-2xs); */
+}
+/* .stat-item > progress[value]::-webkit-progress-value {
+  background-color: var(--color-brand-900);
+  height: var(--spacing-2xs);
+  border-radius: var(--spacing-2xs); 
+} */
+
+.stat-values {
+  display: flex;
+  gap: 15px;
+
+  font-size: var(--font-size-caption);
+  line-height: var(--font-line-height-caption);
+  font-weight: var(--font-weight-caption);
+}
+
+.stat-name {
+  color: var(--color-brand-300);
 }

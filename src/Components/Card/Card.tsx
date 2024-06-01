@@ -4,33 +4,66 @@ export const Card = () => {
   return (
     <article className={styles.card}>
       <header className={styles['card-header']}>
-        <h2 className={styles['pokemon-name']}>Bulbasaur</h2>
-        <div className={styles['pokemon-number']}>#001</div>
+        <h2 className={styles['name']}>Bulbasaur</h2>
+        <div className={styles['number']}>#001</div>
       </header>
-      {/* <img className="pokemon-image" src="/bulbasaur.png" alt="" /> */}
+      {/* <img className="image" src="/bulbasaur.png" alt="" /> */}
       <div className={styles['card-info']}>
-        <div className={styles['pokemon-types']}>
-          <div className={styles['pokemon-type-grass']}>Grass</div>
-          <div className={styles['pokemon-type-poison']}>Poison</div>
+        <div className={styles['tags']}>
+          <div className={`${styles['tag']} ${styles.grass}`}>Grass</div>
+          <div className={`${styles['tag']} ${styles.poison}`}>Poison</div>
         </div>
-        <div className={styles['pokemon-chars']}>
-          <div className={styles['pokemon-char-weight']}>6.9kg</div>
-          <div className={styles['pokemon-char-lenght']}>0.7m</div>
+        <div className={styles['chars']}>
+          <div className={styles['char-weight']}>6.9kg</div>
+          <div className={styles['char-length']}>0.7m</div>
         </div>
-        <ul className="pokemon-stats">
-          <li className="pokemon-stat-item">
-            <label>HP</label>
-            <div>045</div>
+        <ul className={styles['stats']}>
+          <li className={styles['stat-item']}>
+            <label className={styles['stat-values']}>
+              <div className={styles['stat-name']}>HP</div>
+              <div>045</div>
+            </label>
+
             <progress value="20" max="255" />
           </li>
-          <li className="pokemon-stat-item">
-            <label>HP</label>
-            <div>045</div>
+          <li className={styles['stat-item']}>
+            <label className={styles['stat-values']}>
+              <div className={styles['stat-name']}>HP</div>
+              <div>045</div>
+            </label>
+
             <progress value="20" max="255" />
           </li>
-          <li className="pokemon-stat-item">
-            <label>HP</label>
-            <div>045</div>
+          <li className={styles['stat-item']}>
+            <label className={styles['stat-values']}>
+              <div className={styles['stat-name']}>HP</div>
+              <div>045</div>
+            </label>
+
+            <progress value="20" max="255" />
+          </li>
+          <li className={styles['stat-item']}>
+            <label className={styles['stat-values']}>
+              <div className={styles['stat-name']}>HP</div>
+              <div>045</div>
+            </label>
+
+            <progress value="20" max="255" />
+          </li>
+          <li className={styles['stat-item']}>
+            <label className={styles['stat-values']}>
+              <div className={styles['stat-name']}>HP</div>
+              <div>045</div>
+            </label>
+
+            <progress value="20" max="255" />
+          </li>
+          <li className={styles['stat-item']}>
+            <label className={styles['stat-values']}>
+              <div className={styles['stat-name']}>HP</div>
+              <div>045</div>
+            </label>
+
             <progress value="20" max="255" />
           </li>
         </ul>
