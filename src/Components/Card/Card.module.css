@@ -1,4 +1,8 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   width: 285px;
   height: 400px;
 
@@ -34,7 +38,21 @@
   opacity: 50%;
 }
 
+.image {
+  margin: auto;
+  margin-top: -100px;
+
+  width: 140px;
+  height: 140px;
+}
+
 .card-info {
+  /* margin-top: 102px; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 8px;
+
   padding: var(--spacing-s) var(--spacing-xs);
 
   background: var(--color-brand-0);
@@ -45,6 +63,8 @@
   display: flex;
   justify-content: center;
   gap: var(--spacing-2xs);
+
+  /* margin-top: 52px; */
 }
 
 .tag {
@@ -69,22 +89,22 @@
   display: flex;
   justify-content: center;
   gap: var(--spacing-m);
-}
 
-.char-weight {
+  margin-top: 8px;
+
   font-size: var(--font-size-caption);
   line-height: var(--font-line-height-caption);
   font-weight: var(--font-weight-caption);
 }
 
-.char-length {
-  font-size: var(--font-size-caption);
-  line-height: var(--font-line-height-caption);
-  font-weight: var(--font-weight-caption);
+.chars-separator {
+  width: 1px;
+  background-color: var(--color-brand-100);
 }
 
 .stats {
   gap: var(--spacing-3xs);
+  margin-top: 8px;
 }
 
 .stat-item {

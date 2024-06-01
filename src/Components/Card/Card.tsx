@@ -7,14 +7,15 @@ export const Card = () => {
         <h2 className={styles['name']}>Bulbasaur</h2>
         <div className={styles['number']}>#001</div>
       </header>
-      {/* <img className="image" src="/bulbasaur.png" alt="" /> */}
       <div className={styles['card-info']}>
+        <img className={styles.image} src="/bulbasaur.png" alt="" />
         <div className={styles['tags']}>
           <div className={`${styles['tag']} ${styles.grass}`}>Grass</div>
           <div className={`${styles['tag']} ${styles.poison}`}>Poison</div>
         </div>
         <div className={styles['chars']}>
           <div className={styles['char-weight']}>6.9kg</div>
+          <div className={styles['chars-separator']}></div>
           <div className={styles['char-length']}>0.7m</div>
         </div>
         <ul className={styles['stats']}>
