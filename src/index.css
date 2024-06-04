@@ -2,6 +2,7 @@
 
 :root {
   font-family: 'Kanit', sans-serif;
+  background-color: var(--color-brand-50);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
