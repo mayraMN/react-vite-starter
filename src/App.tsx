@@ -1,8 +1,10 @@
+import { Header } from './Components/Header/Header'
 import { Card } from './Components/Card/Card'
+
 function App() {
   return (
     <>
-      <main>My Pokédex</main>
+      <Header />
       <Card />
     </>
   )

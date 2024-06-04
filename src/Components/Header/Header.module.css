@@ -1,0 +1,23 @@
+.header {
+    padding: 18px 16px;
+
+    border-bottom: 1px var(--color-brand-200) solid;
+    background-color: var(--color-brand-50);
+
+    box-shadow: var(--shadow-m);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+
+  margin: 0 auto;
+  max-width: 920px;
+
+  font-size: var(--font-size-headline);
+  font-weight: var(--font-weight-headline);
+  line-height: var(--font-line-headline);
+
+  color: var(--color-brand-900);
+}
