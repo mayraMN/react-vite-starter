@@ -21,3 +21,7 @@
 
   color: var(--color-brand-900);
 }
+
+.icon path{
+  stroke: var(--color-brand-900);
+}

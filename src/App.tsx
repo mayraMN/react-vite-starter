@@ -4,6 +4,7 @@ import { Card } from './Components/Card/Card'
 import { useEffect, useState } from 'react'
 
 import styles from './App.module.css'
+import { Footer } from './Components/Footer/Footer'
 
 type Stat = {
   name: 'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'
@@ -52,14 +53,15 @@ function App() {
       const weight = json.weight
       const stats = json.stats.map(statObject => {
         const statName = statObject.stat.name
-        let name
-        if (statName === 'hp') name = 'HP'
-        if (statName === 'attack') name = 'ATK'
-        if (statName === 'defense') name = 'DEF'
-        if (statName === 'special-attack') name = 'SAT'
-        if (statName === 'special-defense') name = 'SDF'
-        if (statName === 'speed') name = 'SPD'
-        return { name, value: statObject.base_stat }
+        const mappedStats: Record<string, string> = {
+          hp: 'HP',
+          attack: 'ATK',
+          defense: 'DEF',
+          'special-attack': 'SAT',
+          'special-defense': 'SDF',
+          speed: 'SPD'
+        }
+        return { name: mappedStats[statName], value: statObject.base_stat }
       })
       const image = json.sprites.other['official-artwork'].front_default
 
@@ -89,9 +91,8 @@ function App() {
         <Card />
         <Card />
       </div>
-      {isLoading
-        ? 'loading'
-        : pokemons.map(pokemon => <p>{pokemon.types[0]}</p>)}
+      <Footer />
+      
     </>
   )
 }
