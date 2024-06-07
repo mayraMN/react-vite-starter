@@ -3,6 +3,8 @@ import { SearchBar } from './Components/SearchBar/SearchBar'
 import { Card } from './Components/Card/Card'
 import { useEffect, useState } from 'react'
 
+import styles from './App.module.css'
+
 type Stat = {
   name: 'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'
   value: number
@@ -79,8 +81,17 @@ function App() {
     <>
       <Header />
       <SearchBar />
-      <Card />
-      {isLoading ? 'loading' : pokemons.map(pokemon => <p>{pokemon.name}</p>)}
+      <div className={styles.cards}>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
+      {isLoading
+        ? 'loading'
+        : pokemons.map(pokemon => <p>{pokemon.types[0]}</p>)}
     </>
   )
 }
