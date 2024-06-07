@@ -48,7 +48,7 @@ export const Header = () => {
           </defs>
         </svg>
 
-        <h1>Pokédex</h1>
+        <h1 className={styles.title}>Pokédex</h1>
       </nav>
     </header>
   )

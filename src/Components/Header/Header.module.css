@@ -15,13 +15,16 @@
   margin: 0 auto;
   max-width: 920px;
 
-  font-size: var(--font-size-headline);
-  font-weight: var(--font-weight-headline);
-  line-height: var(--font-line-headline);
-
   color: var(--color-brand-900);
 }
 
+
 .icon path{
   stroke: var(--color-brand-900);
+}
+
+.title {
+  font-size: var(--font-size-headline);
+  font-weight: var(--font-weight-headline);
+  line-height: var(--font-line-headline);
 }
