@@ -51,9 +51,9 @@ function App() {
       const types = json.types.map(typeObject => typeObject.type.name)
       const height = json.height
       const weight = json.weight
-      const stats = json.stats.map(statObject => {
+      const stats: Stat[] = json.stats.map(statObject => {
         const statName = statObject.stat.name
-        const mappedStats: Record<string, string> = {
+        const mappedStats: Record<string, 'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'> = {
           hp: 'HP',
           attack: 'ATK',
           defense: 'DEF',
@@ -83,8 +83,8 @@ function App() {
     <>
       <Header />
       <SearchBar />
+      {isLoading ? 'loading' : pokemons[23].image}
       <div className={styles.cards}>
-        <Card />
         <Card />
         <Card />
         <Card />
