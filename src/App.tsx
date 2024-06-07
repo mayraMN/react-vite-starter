@@ -40,7 +40,6 @@ function App() {
     const response = await fetch('https://pokeapi.co/api/v2/generation/1')
     const json = await response.json()
     const pokemons: { name: string; url: string }[] = json.pokemon_species
-    console.log(pokemons[0])
 
     const promises = pokemons.map(async pokemon => {
       const name = pokemon.name
