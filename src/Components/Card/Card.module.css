@@ -76,13 +76,6 @@
 
   color: var(--color-brand-0);
   border-radius: var(--radius-2xl);
-
-  &.poison {
-    background-color: var(--color-type-poison);
-  }
-  &.grass {
-    background-color: var(--color-type-grass);
-  }
 }
 
 .chars {
@@ -134,4 +127,59 @@
 
 .stat-name {
   color: var(--color-brand-300);
+}
+
+.grass {
+  background-color: var(--color-type-grass);
+}
+.bug {
+  background-color: var(--color-type-bug);
+}
+.electric {
+  background-color: var(--color-type-electric);
+}
+.ground {
+  background-color: var(--color-type-ground);
+}
+.fire {
+  background-color: var(--color-type-fire);
+}
+.fighting {
+  background-color: var(--color-type-fighting);
+}
+.poison {
+  background-color: var(--color-type-poison);
+}
+.psychic {
+  background-color: var(--color-type-psychic);
+}
+.fairy {
+  background-color: var(--color-type-fairy);
+}
+.dragon {
+  background-color: var(--color-type-dragon);
+}
+.flying {
+  background-color: var(--color-type-flying);
+}
+.ghost {
+  background-color: var(--color-type-ghost);
+}
+.water {
+  background-color: var(--color-type-water);
+}
+.ice {
+  background-color: var(--color-type-ice);
+}
+.normal {
+  background-color: var(--color-type-normal);
+}
+.rock {
+  background-color: var(--color-type-rock);
+}
+.steel {
+  background-color: var(--color-type-steel);
+}
+.dark {
+  background-color: var(--color-type-dark);
 }

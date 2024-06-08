@@ -12,7 +12,7 @@ export const Card: React.FC<Pokemon> = ({
   //isVisible,
 }) => {
   return (
-    <article className={styles.card}>
+    <article className={`${styles.card} ${styles[types[0]]}`}>
       <header className={styles['card-header']}>
         <h2 className={styles['name']}>{name}</h2>
         <div className={styles['number']}>#{id}</div>
@@ -22,7 +22,7 @@ export const Card: React.FC<Pokemon> = ({
         <div className={styles['tags']}>
           {types.map(type => {
             return (
-              <div className={`${styles['tag']} ${styles.grass}`}>{type}</div>
+              <div className={`${styles['tag']} ${styles[type]}`}>{type}</div>
             )
           })}
         </div>
