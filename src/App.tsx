@@ -67,13 +67,22 @@ function App() {
         return { name: mappedStats[statName], value: statObject.base_stat }
       })
       const image = json.sprites.other['official-artwork'].front_default
-
-      return { name, id, types, height, weight, stats, image, isVisible: true }
+      const capitalizeName = name.charAt(0).toUpperCase() + name.slice(1)
+      return {
+        name: capitalizeName,
+        id,
+        types,
+        height,
+        weight,
+        stats,
+        image,
+        isVisible: true,
+      }
     })
 
     const results = await Promise.all(promises)
     // console.log('RESULTS', results)
-
+    results.sort((pokemonA, pokemonB) => pokemonA.id - pokemonB.id)
     setPokemons(results)
     setIsLoading(false)
   }
