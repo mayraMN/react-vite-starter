@@ -1,72 +1,49 @@
 import styles from './Card.module.css'
+import { Pokemon } from '../../App'
 
-export const Card = () => {
+export const Card: React.FC<Pokemon> = ({
+  name,
+  id,
+  types,
+  height,
+  weight,
+  stats,
+  image,
+  //isVisible,
+}) => {
   return (
     <article className={styles.card}>
       <header className={styles['card-header']}>
-        <h2 className={styles['name']}>Bulbasaur</h2>
-        <div className={styles['number']}>#001</div>
+        <h2 className={styles['name']}>{name}</h2>
+        <div className={styles['number']}>#{id}</div>
       </header>
       <div className={styles['card-info']}>
-        <img className={styles.image} src="/bulbasaur.png" alt="" />
+        <img className={styles.image} src={image} alt="" />
         <div className={styles['tags']}>
-          <div className={`${styles['tag']} ${styles.grass}`}>Grass</div>
-          <div className={`${styles['tag']} ${styles.poison}`}>Poison</div>
+          {types.map(type => {
+            return (
+              <div className={`${styles['tag']} ${styles.grass}`}>{type}</div>
+            )
+          })}
         </div>
         <div className={styles['chars']}>
-          <div className={styles['char-weight']}>6.9kg</div>
+          <div className={styles['char-weight']}>{weight / 10}kg</div>
           <div className={styles['chars-separator']}></div>
-          <div className={styles['char-length']}>0.7m</div>
+          <div className={styles['char-length']}>{height / 10}m</div>
         </div>
         <ul className={styles['stats']}>
-          <li className={styles['stat-item']}>
-            <label className={styles['stat-values']}>
-              <div className={styles['stat-name']}>HP</div>
-              <div>045</div>
-            </label>
+          {stats.map(stat => {
+            return (
+              <li className={styles['stat-item']}>
+                <label className={styles['stat-values']}>
+                  <div className={styles['stat-name']}>{stat.name}</div>
+                  <div>{stat.value}</div>
+                </label>
 
-            <progress value="20" max="255" />
-          </li>
-          <li className={styles['stat-item']}>
-            <label className={styles['stat-values']}>
-              <div className={styles['stat-name']}>HP</div>
-              <div>045</div>
-            </label>
-
-            <progress value="20" max="255" />
-          </li>
-          <li className={styles['stat-item']}>
-            <label className={styles['stat-values']}>
-              <div className={styles['stat-name']}>HP</div>
-              <div>045</div>
-            </label>
-
-            <progress value="20" max="255" />
-          </li>
-          <li className={styles['stat-item']}>
-            <label className={styles['stat-values']}>
-              <div className={styles['stat-name']}>HP</div>
-              <div>045</div>
-            </label>
-
-            <progress value="20" max="255" />
-          </li>
-          <li className={styles['stat-item']}>
-            <label className={styles['stat-values']}>
-              <div className={styles['stat-name']}>HP</div>
-              <div>045</div>
-            </label>
-
-            <progress value="20" max="255" />
-          </li>
-          <li className={styles['stat-item']}>
-            <label className={styles['stat-values']}>
-              <div className={styles['stat-name']}>HP</div>
-              <div>045</div>
-            </label>
-
-            <progress value="20" max="255" />
-          </li>
+                <progress value={stat.value} max="255" />
+              </li>
+            )
+          })}
         </ul>
       </div>
     </article>

@@ -5,13 +5,14 @@ import { useEffect, useState } from 'react'
 
 import styles from './App.module.css'
 import { Footer } from './Components/Footer/Footer'
+// import { preload } from 'react-dom'
 
 type Stat = {
   name: 'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'
   value: number
 }
 
-type Pokemon = {
+export type Pokemon = {
   name: string
   id: number
   types: string[]
@@ -52,13 +53,16 @@ function App() {
       const weight = json.weight
       const stats: Stat[] = json.stats.map(statObject => {
         const statName = statObject.stat.name
-        const mappedStats: Record<string, 'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'> = {
+        const mappedStats: Record<
+          string,
+          'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'
+        > = {
           hp: 'HP',
           attack: 'ATK',
           defense: 'DEF',
           'special-attack': 'SAT',
           'special-defense': 'SDF',
-          speed: 'SPD'
+          speed: 'SPD',
         }
         return { name: mappedStats[statName], value: statObject.base_stat }
       })
@@ -82,16 +86,24 @@ function App() {
     <>
       <Header />
       <SearchBar />
-      {isLoading ? 'loading' : pokemons[23].image}
+      {isLoading ? 'loading' : ''}
       <div className={styles.cards}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {pokemons.map(pokemon => {
+          return (
+            <Card
+              name={pokemon.name}
+              id={pokemon.id}
+              types={pokemon.types}
+              height={pokemon.height}
+              weight={pokemon.weight}
+              stats={pokemon.stats}
+              image={pokemon.image}
+              isVisible={pokemon.isVisible}
+            />
+          )
+        })}
       </div>
       <Footer />
-      
     </>
   )
 }
