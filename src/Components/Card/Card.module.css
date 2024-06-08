@@ -78,13 +78,23 @@
   border-radius: var(--radius-2xl);
 }
 
+.tag svg {
+  width: var(--spacing-m);
+  height: var(--spacing-m);
+  & path {
+    fill: var(--color-brand-0);
+  }
+}
+
 .chars {
   display: flex;
   justify-content: center;
+  /* align-items: center; */
   gap: var(--spacing-m);
 
   margin-top: 8px;
 
+  height: var(--spacing-2xl);
   font-size: var(--font-size-caption);
   line-height: var(--font-line-height-caption);
   font-weight: var(--font-weight-caption);
@@ -93,6 +103,24 @@
 .chars-separator {
   width: 1px;
   background-color: var(--color-brand-100);
+}
+
+.char-weight {
+  display: flex;
+  gap: var(--spacing-2xs);
+}
+
+.char-length {
+  display: flex;
+  gap: var(--spacing-2xs);
+}
+
+.chars svg {
+  width: var(--spacing-l);
+  height: var(--spacing-l);
+  & path {
+    stroke: var(--color-brand-500);
+  }
 }
 
 .stats {
