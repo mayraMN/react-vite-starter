@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 export function capitalizeFirstLetter(name: string) {
   return name.charAt(0).toUpperCase() + name.slice(1)

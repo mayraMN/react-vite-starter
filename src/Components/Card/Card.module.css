@@ -89,7 +89,7 @@
 .chars {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
   gap: var(--spacing-m);
 
   margin-top: 8px;
@@ -101,17 +101,22 @@
 }
 
 .chars-separator {
+  height: 100%;
   width: 1px;
   background-color: var(--color-brand-100);
 }
 
 .char-weight {
   display: flex;
+  align-items: center;
+
   gap: var(--spacing-2xs);
 }
 
 .char-length {
   display: flex;
+  align-items: center;
+
   gap: var(--spacing-2xs);
 }
 
@@ -124,6 +129,8 @@
 }
 
 .stats {
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-3xs);
   margin-top: 8px;
 }
@@ -146,7 +153,8 @@
 
 .stat-values {
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
+  min-width: 51px;
 
   font-size: var(--font-size-caption);
   line-height: var(--font-line-height-caption);

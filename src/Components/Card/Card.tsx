@@ -130,7 +130,7 @@ export const Card: React.FC<Pokemon> = ({
               <li className={styles['stat-item']}>
                 <label className={styles['stat-values']}>
                   <div className={styles['stat-name']}>{stat.name}</div>
-                  <div>{stat.value}</div>
+                  <div>{formatIdNumber(stat.value)}</div>
                 </label>
 
                 <progress value={stat.value} max="255" />
