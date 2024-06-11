@@ -1,6 +1,6 @@
 import { Pokemon, PokemonDTO, Stat } from '../../App'
 
-export async function getPokemons(): Promise<Pokemon[]> {
+const getAll = async (): Promise<Pokemon[]> => {
   const response = await fetch('https://pokeapi.co/api/v2/generation/1')
   const json = await response.json()
   const pokemons: { name: string; url: string }[] = json.pokemon_species
@@ -46,4 +46,8 @@ export async function getPokemons(): Promise<Pokemon[]> {
   results.sort((pokemonA, pokemonB) => pokemonA.id - pokemonB.id)
 
   return results
+}
+
+export const pokemonService = {
+  getAll,
 }

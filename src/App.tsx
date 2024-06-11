@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 import styles from './App.module.css'
 import { Footer } from './Components/Footer/Footer'
-import { getPokemons } from './core/services/getPokemons'
+import { pokemonService } from './core/services/pokemon.service'
 
 export type Stat = {
   name: 'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'
@@ -39,10 +39,8 @@ export function App() {
 
   useEffect(() => {
     const firstRender = async () => {
-      const results = await getPokemons()
-      console.log('RESULTS', results)
+      const results = await pokemonService.getAll()
       setPokemons(results)
-      console.log('hola', results)
       setIsLoading(false)
     }
 
@@ -53,7 +51,7 @@ export function App() {
     <>
       <Header />
       <SearchBar />
-      {/* {isLoading ? 'loading' : ''} */}
+      {isLoading ? 'loading' : ''}
       <div className={styles.cards}>
         {pokemons.map(pokemon => {
           return (
