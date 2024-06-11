@@ -139,14 +139,29 @@
 
 .stat-item > progress {
   width: 100%;
-  /* height: var(--spacing-2xs);
-  border-radius: var(--spacing-2xs); */
-}
-/* .stat-item > progress[value]::-webkit-progress-value {
-  background-color: var(--color-brand-900);
   height: var(--spacing-2xs);
-  border-radius: var(--spacing-2xs); 
-} */
+  border-radius: var(--spacing-2xs);
+
+  border: none;
+  background-color: var(--color-brand-100);
+}
+.stat-item > progress::-webkit-progress-bar {
+  border-radius: var(--spacing-2xs);
+
+  background-color: var(--color-brand-100);
+}
+.stat-item > progress::-webkit-progress-value {
+  border-radius: var(--spacing-2xs);
+
+  background-color: var(--color-brand-900);
+}
+
+.stat-item > progress::-moz-progress-bar {
+  border-radius: var(--spacing-2xs);
+
+  background-color: var(--color-brand-900);
+  width: 0;
+}
 
 .stat-values {
   display: flex;

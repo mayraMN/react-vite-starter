@@ -32,7 +32,7 @@ type PokemonDTO = {
   sprites: { other: { 'official-artwork': { front_default: string } } }
 }
 
-function App() {
+export function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -77,11 +77,13 @@ function App() {
         isVisible: true,
       }
     })
-
+    console.log('he llegado', promises)
     const results = await Promise.all(promises)
-    // console.log('RESULTS', results)
+
+    console.log('RESULTS', results)
     results.sort((pokemonA, pokemonB) => pokemonA.id - pokemonB.id)
     setPokemons(results)
+    console.log('hola', results)
     setIsLoading(false)
   }
 
@@ -93,7 +95,7 @@ function App() {
     <>
       <Header />
       <SearchBar />
-      {isLoading ? 'loading' : ''}
+      {/* {isLoading ? 'loading' : ''} */}
       <div className={styles.cards}>
         {pokemons.map(pokemon => {
           return (
@@ -114,5 +116,3 @@ function App() {
     </>
   )
 }
-
-export default App
