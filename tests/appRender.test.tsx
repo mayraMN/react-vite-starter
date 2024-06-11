@@ -1,20 +1,12 @@
-import {
-  act,
-  getByText,
-  render,
-  screen,
-  waitFor,
-  waitForElementToBeRemoved,
-} from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 // import userEvent from '@testing-library/user-event'
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { App, Pokemon } from '../src/App'
 import React from 'react'
 import '@testing-library/jest-dom'
 import { pokemonService } from '../src/core/services/pokemon.service'
 
 describe('Render main page', () => {
-  // beforeEach(() => {})
   it('Render header', () => {
     render(<App />)
     expect(screen.getByText('Pokédex')).toBeInTheDocument()
@@ -23,7 +15,7 @@ describe('Render main page', () => {
     render(<App />)
     expect(screen.getByRole('textbox')).toBeInTheDocument()
   })
-  it.only('Render search bar', async () => {
+  it('Render bulbasaur card', async () => {
     const mockPokemons: Pokemon[] = [
       {
         name: 'bulbasaur',

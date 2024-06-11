@@ -24,9 +24,9 @@ export type Pokemon = {
 }
 
 export type PokemonDTO = {
-  name: 'bulbasur'
+  name: string
   id: number
-  types: { type: { name: string; url: string } }[]
+  types: { type: { name: string } }[]
   height: number
   weight: number
   stats: { base_stat: number; stat: { name: string } }[]

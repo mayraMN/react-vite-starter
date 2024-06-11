@@ -1,14 +1,15 @@
 import { Pokemon, PokemonDTO, Stat } from '../../App'
+import { apiClient } from './apiClient.service'
 
 const getAll = async (): Promise<Pokemon[]> => {
-  const response = await fetch('https://pokeapi.co/api/v2/generation/1')
-  const json = await response.json()
+  const json = await apiClient.get('https://pokeapi.co/api/v2/generation/1')
   const pokemons: { name: string; url: string }[] = json.pokemon_species
 
   const promises = pokemons.map(async pokemon => {
     const name = pokemon.name
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-    const json: PokemonDTO = await response.json()
+    const json: PokemonDTO = await apiClient.get(
+      `https://pokeapi.co/api/v2/pokemon/${name}`,
+    )
 
     const id = json.id
     const types = json.types.map(typeObject => typeObject.type.name)
