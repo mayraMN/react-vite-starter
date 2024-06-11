@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react'
 
 import styles from './App.module.css'
 import { Footer } from './Components/Footer/Footer'
+import { getPokemons } from './core/services/getPokemons'
 
-type Stat = {
+export type Stat = {
   name: 'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'
   value: number
 }
@@ -22,7 +23,7 @@ export type Pokemon = {
   isVisible: boolean
 }
 
-type PokemonDTO = {
+export type PokemonDTO = {
   name: 'bulbasur'
   id: number
   types: { type: { name: string; url: string } }[]
@@ -36,59 +37,16 @@ export function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
-  async function getAPI() {
-    const response = await fetch('https://pokeapi.co/api/v2/generation/1')
-    const json = await response.json()
-    const pokemons: { name: string; url: string }[] = json.pokemon_species
-
-    const promises = pokemons.map(async pokemon => {
-      const name = pokemon.name
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-      const json: PokemonDTO = await response.json()
-
-      const id = json.id
-      const types = json.types.map(typeObject => typeObject.type.name)
-      const height = json.height
-      const weight = json.weight
-      const stats: Stat[] = json.stats.map(statObject => {
-        const statName = statObject.stat.name
-        const mappedStats: Record<
-          string,
-          'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'
-        > = {
-          hp: 'HP',
-          attack: 'ATK',
-          defense: 'DEF',
-          'special-attack': 'SAT',
-          'special-defense': 'SDF',
-          speed: 'SPD',
-        }
-        return { name: mappedStats[statName], value: statObject.base_stat }
-      })
-      const image = json.sprites.other['official-artwork'].front_default
-      return {
-        name,
-        id,
-        types,
-        height,
-        weight,
-        stats,
-        image,
-        isVisible: true,
-      }
-    })
-    console.log('he llegado', promises)
-    const results = await Promise.all(promises)
-
-    console.log('RESULTS', results)
-    results.sort((pokemonA, pokemonB) => pokemonA.id - pokemonB.id)
-    setPokemons(results)
-    console.log('hola', results)
-    setIsLoading(false)
-  }
-
   useEffect(() => {
-    getAPI()
+    const firstRender = async () => {
+      const results = await getPokemons()
+      console.log('RESULTS', results)
+      setPokemons(results)
+      console.log('hola', results)
+      setIsLoading(false)
+    }
+
+    firstRender()
   }, [])
 
   return (
@@ -100,6 +58,7 @@ export function App() {
         {pokemons.map(pokemon => {
           return (
             <Card
+              key={pokemon.id}
               name={pokemon.name}
               id={pokemon.id}
               types={pokemon.types}

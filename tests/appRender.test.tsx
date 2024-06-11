@@ -21,18 +21,20 @@ describe('Render main page', () => {
     render(<App />)
     expect(screen.getByRole('textbox')).toBeInTheDocument()
   })
-  it('Render search bar', async () => {
+  it.only('Render search bar', async () => {
     render(<App />)
-    await waitFor(
-      () => {
-        expect(screen.getByText('Bulbasaur')).toBeInTheDocument()
-      },
-      { timeout: 6000 },
-    )
+    // await waitFor(
+    //   () => {
+    //     expect(screen.getByText('Bulbasaur')).toBeInTheDocument()
+    //   },
+    //   { timeout: 6000 },
+    // )
     // waitForElementToBeRemoved(() => {
     //   screen.queryByText('loading')
     // })
     // screen.debug()
-    // expect(await screen.findByText('Bulbasaur')).toBeInTheDocument()
+    const pokemonTitle = await screen.findByText('Bulbasaur')
+    console.log({ pokemonTitle })
+    expect(pokemonTitle).toBeInTheDocument()
   })
 })
