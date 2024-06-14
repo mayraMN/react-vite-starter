@@ -34,16 +34,18 @@ export type PokemonDTO = {
   sprites: { other: { 'official-artwork': { front_default: string } } }
 }
 
+type PageState = 'loading' | 'loaded' | 'noResults' | 'errorLoading'
+
 export function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [pageState, setPageState] = useState<PageState>('loading')
   const [searchValue, setSearchValue] = useState<string>('')
 
   useEffect(() => {
     const firstRender = async () => {
       const results = await pokemonService.getAll()
       setPokemons(results)
-      setIsLoading(false)
+      setPageState('loaded')
     }
 
     firstRender()
@@ -63,7 +65,7 @@ export function App() {
       <Header />
       <SearchBar onChange={onChange} />
       <div className={styles.cards}>
-        {isLoading ? (
+        {pageState !== 'loaded' ? (
           <>
             <CardLoading />
             <CardLoading />
