@@ -10,7 +10,6 @@ const getAll = async (): Promise<Pokemon[]> => {
     const json: PokemonDTO = await apiClient.get(
       `https://pokeapi.co/api/v2/pokemon/${name}`,
     )
-
     const id = json.id
     const types = json.types.map(typeObject => typeObject.type.name)
     const height = json.height
