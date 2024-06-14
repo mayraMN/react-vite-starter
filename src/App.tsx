@@ -36,11 +36,11 @@ export type PokemonDTO = {
 export function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [searchValue, setSearchValue] = useState<String>('')
 
   useEffect(() => {
     const firstRender = async () => {
       const results = await pokemonService.getAll()
-      console.log(results)
       setPokemons(results)
       setIsLoading(false)
     }

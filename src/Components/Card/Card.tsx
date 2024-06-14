@@ -22,7 +22,7 @@ export const Card: React.FC<Pokemon> = ({
         <div className={styles['tags']}>
           {types.map(type => {
             return (
-              <div className={`${styles['tag']} ${styles[type]}`}>
+              <div className={`${styles['tag']} ${styles[type]}`} key={type}>
                 {iconsDic[type]}
                 {capitalizeFirstLetter(type)}
               </div>

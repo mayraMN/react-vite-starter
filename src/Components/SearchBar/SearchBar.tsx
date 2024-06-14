@@ -1,6 +1,9 @@
 import styles from './SearchBar.module.css'
 
 export const SearchBar = () => {
+  const handleChange = () => {
+    console.log('isChange')
+  }
   return (
     <>
       <form action="" className={styles.searchBar}>
@@ -38,6 +41,7 @@ export const SearchBar = () => {
           type="text"
           className={styles.searchInput}
           placeholder="Search a Pokémon"
+          onChange={handleChange()}
         />
       </form>
     </>

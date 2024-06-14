@@ -41,7 +41,6 @@ const getAll = async (): Promise<Pokemon[]> => {
       isVisible: true,
     }
   })
-  console.log('he llegado')
   const results = await Promise.all(promises)
   results.sort((pokemonA, pokemonB) => pokemonA.id - pokemonB.id)
 
