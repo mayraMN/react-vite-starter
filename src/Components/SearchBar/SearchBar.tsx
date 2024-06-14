@@ -1,8 +1,13 @@
+import { ChangeEvent } from 'react'
 import styles from './SearchBar.module.css'
 
-export const SearchBar = () => {
-  const handleChange = () => {
-    console.log('isChange')
+type SearchBarProps = {
+  onChange: (inputValue: string) => void
+}
+
+export const SearchBar: React.FC<SearchBarProps> = ({ onChange }) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    onChange(event.target.value)
   }
   return (
     <>
@@ -41,7 +46,7 @@ export const SearchBar = () => {
           type="text"
           className={styles.searchInput}
           placeholder="Search a Pokémon"
-          onChange={handleChange()}
+          onChange={event => handleChange(event)}
         />
       </form>
     </>

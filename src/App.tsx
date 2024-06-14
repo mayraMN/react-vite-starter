@@ -36,7 +36,7 @@ export type PokemonDTO = {
 export function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [searchValue, setSearchValue] = useState<String>('')
+  const [searchValue, setSearchValue] = useState<string>('')
 
   useEffect(() => {
     const firstRender = async () => {
@@ -48,13 +48,22 @@ export function App() {
     firstRender()
   }, [])
 
+  const onChange = (inputValue: string) => {
+    setSearchValue(inputValue)
+  }
+  const filterPokemon = () => {
+    return pokemons.filter(pokemon => {
+      return pokemon.name.startsWith(searchValue)
+    })
+  }
+
   return (
     <>
       <Header />
-      <SearchBar />
+      <SearchBar onChange={onChange} />
       {isLoading ? 'loading' : ''}
       <div className={styles.cards}>
-        {pokemons.map(pokemon => {
+        {filterPokemon().map(pokemon => {
           return (
             <Card
               key={pokemon.id}
