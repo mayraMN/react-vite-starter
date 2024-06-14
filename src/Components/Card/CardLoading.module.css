@@ -1,0 +1,22 @@
+.cardLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 285px;
+  height: 400px;
+
+  background-color: var(--color-brand-100);
+  border-radius: var(--radius-l);
+  border: var(--color-brand-0) solid var(--spacing-xs);
+  box-shadow: var(--shadow-s);
+}
+
+.icon {
+  width: 120px;
+  height: 120px;
+
+  path {
+    stroke: var(--color-brand-0);
+  }
+}

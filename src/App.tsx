@@ -1,6 +1,7 @@
 import { Header } from './Components/Header/Header'
 import { SearchBar } from './Components/SearchBar/SearchBar'
 import { Card } from './Components/Card/Card'
+import { CardLoading } from './Components/Card/CardLoading'
 import { useEffect, useState } from 'react'
 
 import styles from './App.module.css'
@@ -61,24 +62,34 @@ export function App() {
     <>
       <Header />
       <SearchBar onChange={onChange} />
-      {isLoading ? 'loading' : ''}
       <div className={styles.cards}>
-        {filterPokemon().map(pokemon => {
-          return (
-            <Card
-              key={pokemon.id}
-              name={pokemon.name}
-              id={pokemon.id}
-              types={pokemon.types}
-              height={pokemon.height}
-              weight={pokemon.weight}
-              stats={pokemon.stats}
-              image={pokemon.image}
-              isVisible={pokemon.isVisible}
-            />
-          )
-        })}
+        {isLoading ? (
+          <>
+            <CardLoading />
+            <CardLoading />
+            <CardLoading />
+          </>
+        ) : (
+          <>
+            {filterPokemon().map(pokemon => {
+              return (
+                <Card
+                  key={pokemon.id}
+                  name={pokemon.name}
+                  id={pokemon.id}
+                  types={pokemon.types}
+                  height={pokemon.height}
+                  weight={pokemon.weight}
+                  stats={pokemon.stats}
+                  image={pokemon.image}
+                  isVisible={pokemon.isVisible}
+                />
+              )
+            })}
+          </>
+        )}
       </div>
+
       <Footer />
     </>
   )
