@@ -1,10 +1,8 @@
 import { describe, it, vi, expect } from 'vitest'
 import { apiClient } from '../apiClient.service'
 import { pokemonService } from '../pokemon.service'
-import { render, screen } from '@testing-library/react'
 
 import '@testing-library/jest-dom'
-import { App } from '../../../App'
 
 describe('ApiClient services', () => {
   it.only('ApiClient service get', async () => {
