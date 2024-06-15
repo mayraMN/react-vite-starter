@@ -3,7 +3,7 @@ import { apiClient } from './apiClient.service'
 
 const getAll = async (): Promise<Pokemon[] | null> => {
   try {
-    const json = await apiClient.get('https://pokeapi.co/api/v2/geneation/1')
+    const json = await apiClient.get('https://pokeapi.co/api/v2/generation/1')
     const pokemons: { name: string; url: string }[] = json.pokemon_species
 
     const promises = pokemons.map(async pokemon => {
