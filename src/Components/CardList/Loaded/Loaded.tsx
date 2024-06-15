@@ -4,13 +4,13 @@ import { Card } from '../../Card/Card'
 import styles from '../CardList.module.css'
 
 type LoadedProps = {
-  filterPokemon: () => Pokemon[]
+  filterPokemon: Pokemon[] | undefined
 }
 
 export const Loaded: React.FC<LoadedProps> = ({ filterPokemon }) => {
   return (
     <div className={styles['cards-list']}>
-      {filterPokemon().map(pokemon => {
+      {filterPokemon?.map(pokemon => {
         return (
           <Card
             key={pokemon.id}

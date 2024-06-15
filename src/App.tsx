@@ -6,6 +6,7 @@ import { SearchBar } from './Components/SearchBar/SearchBar'
 import { Footer } from './Components/Footer/Footer'
 import { Loaded } from './Components/CardList/Loaded/Loaded'
 import { Loading } from './Components/CardList/Loading/Loading'
+import { NoResults } from './Components/NoResults/NoResults'
 
 export type Stat = {
   name: 'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'
@@ -33,18 +34,18 @@ export type PokemonDTO = {
   sprites: { other: { 'official-artwork': { front_default: string } } }
 }
 
-type PageState = 'loading' | 'loaded' | 'noResults' | 'errorLoading'
+// type PageState = 'loading' | 'loaded' | 'noResults' | 'errorLoading'
 
 export function App() {
-  const [pokemons, setPokemons] = useState<Pokemon[]>([])
-  const [pageState, setPageState] = useState<PageState>('loading')
+  const [pokemons, setPokemons] = useState<Pokemon[] | undefined>(undefined)
+  // const [pageState, setPageState] = useState<PageState>('loading')
   const [searchValue, setSearchValue] = useState<string>('')
 
   useEffect(() => {
     const firstRender = async () => {
       const results = await pokemonService.getAll()
       setPokemons(results)
-      setPageState('loaded')
+      // setPageState('loaded')
     }
 
     firstRender()
@@ -54,20 +55,23 @@ export function App() {
     setSearchValue(inputValue)
   }
   const filterPokemon = () => {
-    return pokemons.filter(pokemon => {
+    return pokemons?.filter(pokemon => {
       return pokemon.name.startsWith(searchValue)
     })
   }
+
+  const filteredPokemons = filterPokemon()
 
   return (
     <>
       <Header />
       <SearchBar onChange={onChange} />
-
-      {pageState !== 'loaded' ? (
-        <Loading />
-      ) : (
-        <Loaded filterPokemon={filterPokemon} />
+      {pokemons === undefined && <Loading />}
+      {filteredPokemons?.length !== 0 && (
+        <Loaded filterPokemon={filteredPokemons} />
+      )}
+      {filteredPokemons?.length === 0 && (
+        <NoResults searchValue={searchValue} />
       )}
 
       <Footer />
