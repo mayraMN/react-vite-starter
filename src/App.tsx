@@ -9,6 +9,8 @@ import { Loading } from './Components/CardList/Loading/Loading'
 import { NoResults } from './Components/NoResults/NoResults'
 import { ErrorLoading } from './Components/ErrorLoading/ErrorLoading'
 
+import styles from './App.module.css'
+
 export type Stat = {
   name: 'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'
   value: number
@@ -59,7 +61,7 @@ export function App() {
   }
   const filterPokemon = () => {
     return pokemons?.filter(pokemon => {
-      return pokemon.name.startsWith(searchValue)
+      return pokemon.name.startsWith(searchValue.toLowerCase())
     })
   }
 
@@ -68,20 +70,22 @@ export function App() {
   return (
     <>
       <Header />
-      <SearchBar onChange={onChange} />
-      {apiError ? (
-        <ErrorLoading />
-      ) : (
-        <>
-          {pokemons === undefined && <Loading />}
-          {filteredPokemons?.length !== 0 && (
-            <Loaded filterPokemon={filteredPokemons} />
-          )}
-          {filteredPokemons?.length === 0 && (
-            <NoResults searchValue={searchValue} />
-          )}
-        </>
-      )}
+      <div className={styles.mainContainer}>
+        <SearchBar onChange={onChange} />
+        {apiError ? (
+          <ErrorLoading />
+        ) : (
+          <>
+            {pokemons === undefined && <Loading />}
+            {filteredPokemons?.length !== 0 && (
+              <Loaded filterPokemon={filteredPokemons} />
+            )}
+            {filteredPokemons?.length === 0 && (
+              <NoResults searchValue={searchValue} />
+            )}
+          </>
+        )}
+      </div>
       <Footer />
     </>
   )
