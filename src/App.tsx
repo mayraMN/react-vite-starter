@@ -45,7 +45,6 @@ export function App() {
   useEffect(() => {
     const firstRender = async () => {
       const results = await pokemonService.getAll()
-      console.log(results)
       if (results === null) {
         setApiError(true)
         return
