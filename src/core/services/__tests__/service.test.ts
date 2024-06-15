@@ -5,7 +5,7 @@ import { pokemonService } from '../pokemon.service'
 import '@testing-library/jest-dom'
 
 describe('ApiClient services', () => {
-  it.only('ApiClient service get', async () => {
+  it('ApiClient service get', async () => {
     const mockApiCall = {
       abilities: [],
       id: 1,

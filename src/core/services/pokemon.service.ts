@@ -31,6 +31,7 @@ const getAll = async (): Promise<Pokemon[] | null> => {
         return { name: mappedStats[statName], value: statObject.base_stat }
       })
       const image = json.sprites.other['official-artwork'].front_default
+
       return {
         name,
         id,
