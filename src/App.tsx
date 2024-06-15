@@ -7,6 +7,7 @@ import { Footer } from './Components/Footer/Footer'
 import { Loaded } from './Components/CardList/Loaded/Loaded'
 import { Loading } from './Components/CardList/Loading/Loading'
 import { NoResults } from './Components/NoResults/NoResults'
+import { ErrorLoading } from './Components/ErrorLoading/ErrorLoading'
 
 export type Stat = {
   name: 'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'
@@ -34,18 +35,19 @@ export type PokemonDTO = {
   sprites: { other: { 'official-artwork': { front_default: string } } }
 }
 
-// type PageState = 'loading' | 'loaded' | 'noResults' | 'errorLoading'
-
 export function App() {
   const [pokemons, setPokemons] = useState<Pokemon[] | undefined>(undefined)
-  // const [pageState, setPageState] = useState<PageState>('loading')
   const [searchValue, setSearchValue] = useState<string>('')
+  const [apiError, setApiError] = useState<boolean>(false)
 
   useEffect(() => {
     const firstRender = async () => {
       const results = await pokemonService.getAll()
+      if (results === null) {
+        setApiError(true)
+        return
+      }
       setPokemons(results)
-      // setPageState('loaded')
     }
 
     firstRender()
@@ -66,14 +68,19 @@ export function App() {
     <>
       <Header />
       <SearchBar onChange={onChange} />
-      {pokemons === undefined && <Loading />}
-      {filteredPokemons?.length !== 0 && (
-        <Loaded filterPokemon={filteredPokemons} />
+      {apiError ? (
+        <ErrorLoading />
+      ) : (
+        <>
+          {pokemons === undefined && <Loading />}
+          {filteredPokemons?.length !== 0 && (
+            <Loaded filterPokemon={filteredPokemons} />
+          )}
+          {filteredPokemons?.length === 0 && (
+            <NoResults searchValue={searchValue} />
+          )}
+        </>
       )}
-      {filteredPokemons?.length === 0 && (
-        <NoResults searchValue={searchValue} />
-      )}
-
       <Footer />
     </>
   )

@@ -1,0 +1,13 @@
+.errorLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+.errorMessage {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+
+  text-align: center;
+}
