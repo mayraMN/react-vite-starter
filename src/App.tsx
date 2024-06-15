@@ -1,12 +1,11 @@
+import { useEffect, useState } from 'react'
+import { pokemonService } from './core/services/pokemon.service'
+
 import { Header } from './Components/Header/Header'
 import { SearchBar } from './Components/SearchBar/SearchBar'
-import { Card } from './Components/Card/Card'
-import { CardLoading } from './Components/Card/CardLoading'
-import { useEffect, useState } from 'react'
-
-import styles from './App.module.css'
 import { Footer } from './Components/Footer/Footer'
-import { pokemonService } from './core/services/pokemon.service'
+import { Loaded } from './Components/CardList/Loaded/Loaded'
+import { Loading } from './Components/CardList/Loading/Loading'
 
 export type Stat = {
   name: 'HP' | 'ATK' | 'DEF' | 'SAT' | 'SDF' | 'SPD'
@@ -64,33 +63,12 @@ export function App() {
     <>
       <Header />
       <SearchBar onChange={onChange} />
-      <div className={styles.cards}>
-        {pageState !== 'loaded' ? (
-          <>
-            <CardLoading />
-            <CardLoading />
-            <CardLoading />
-          </>
-        ) : (
-          <>
-            {filterPokemon().map(pokemon => {
-              return (
-                <Card
-                  key={pokemon.id}
-                  name={pokemon.name}
-                  id={pokemon.id}
-                  types={pokemon.types}
-                  height={pokemon.height}
-                  weight={pokemon.weight}
-                  stats={pokemon.stats}
-                  image={pokemon.image}
-                  isVisible={pokemon.isVisible}
-                />
-              )
-            })}
-          </>
-        )}
-      </div>
+
+      {pageState !== 'loaded' ? (
+        <Loading />
+      ) : (
+        <Loaded filterPokemon={filterPokemon} />
+      )}
 
       <Footer />
     </>

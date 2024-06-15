@@ -1,0 +1,11 @@
+.cards-list {
+  display: flex;
+  gap: var(--spacing-2xl);
+  justify-content: center;
+  flex-wrap: wrap;
+
+  max-width: 920px;
+  margin-inline: auto;
+
+  padding-bottom: var(--spacing-4xl);
+}
