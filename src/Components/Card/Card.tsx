@@ -1,6 +1,6 @@
 import styles from './Card.module.css'
-import { Pokemon } from '../../App'
 import { capitalizeFirstLetter, formatIdNumber, iconsDic } from '../Utils/Utils'
+import { Pokemon } from '../../core/domain/Pokemon.model'
 export const Card: React.FC<Pokemon> = ({
   name,
   id,
