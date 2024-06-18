@@ -2,10 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-grow: 1;
-
-  min-width: 285px;
-  max-width: 400px;
+  
   height: 400px;
   padding: var(--spacing-xs);
 
@@ -14,11 +11,7 @@
   background-color: var(--color-type-grass);
 }
 
-@media (max-width: 768px) {
-  .card {
 
-  }
-}
 
 .card-header {
   display: flex;

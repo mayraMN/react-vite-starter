@@ -1,11 +1,10 @@
 .cards-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
   gap: var(--spacing-2xl);
   justify-content: center;
   flex-wrap: wrap;
 
   max-width: 920px;
   margin-inline: auto;
-
-  padding-bottom: var(--spacing-2xl);
 }
