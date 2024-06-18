@@ -2,15 +2,22 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-grow: 1;
 
-  width: 285px;
+  min-width: 285px;
+  max-width: 400px;
   height: 400px;
-
   padding: var(--spacing-xs);
 
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-s);
   background-color: var(--color-type-grass);
+}
+
+@media (max-width: 768px) {
+  .card {
+
+  }
 }
 
 .card-header {
@@ -135,6 +142,7 @@
 .stat-item {
   display: flex;
   gap: var(--spacing-xs);
+  align-items: center;
 }
 
 .stat-item > progress {
