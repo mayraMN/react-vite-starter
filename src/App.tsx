@@ -4,13 +4,14 @@ import { pokemonService } from './core/services/pokemon.service'
 import { Header } from './Components/Header/Header'
 import { SearchBar } from './Components/SearchBar/SearchBar'
 import { Footer } from './Components/Footer/Footer'
-import { Loaded } from './Components/CardList/Loaded/Loaded'
-import { Loading } from './Components/CardList/Loading/Loading'
+// import { Loaded } from './Components/CardList/Loaded/Loaded'
+// import { Loading } from './Components/CardList/Loading/Loading'
 import { NoResults } from './Components/NoResults/NoResults'
 import { ErrorLoading } from './Components/ErrorLoading/ErrorLoading'
 
 import styles from './App.module.css'
 import { Pokemon } from './core/domain/Pokemon.model'
+import { CardList } from './Components/CardList/CardList'
 
 export type PokemonDTO = {
   name: string
@@ -67,10 +68,11 @@ export function App() {
           <ErrorLoading />
         ) : (
           <>
-            {pokemons === undefined && <Loading />}
+            <CardList pokemons={filteredPokemons}/>
+            {/* {pokemons === undefined && <Loading />}
             {filteredPokemons?.length !== 0 && (
               <Loaded filterPokemon={filteredPokemons} />
-            )}
+            )} */}
             {filteredPokemons?.length === 0 && (
               <NoResults searchValue={searchValue} />
             )}
