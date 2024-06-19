@@ -48,7 +48,6 @@ export const Header = () => {
             </clipPath>
           </defs>
         </svg>
-
         <h1 className={styles.title}>Pokédex</h1>
       </nav>
     </header>

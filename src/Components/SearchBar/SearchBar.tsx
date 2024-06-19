@@ -45,7 +45,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onChange }) => {
         <input
           type="text"
           className={styles.searchInput}
-          placeholder="Search a Pokémon"
+          placeholder="Search a Pokémon..."
           onChange={event => handleChange(event)}
         />
       </form>
