@@ -1,7 +1,7 @@
 import React from 'react'
-import type { Pokemon } from '../../../App'
 import { Card } from '../../Card/Card'
 import styles from '../CardList.module.css'
+import { Pokemon } from '../../../core/domain/Pokemon.model'
 
 type LoadedProps = {
   filterPokemon: Pokemon[] | undefined
@@ -9,7 +9,7 @@ type LoadedProps = {
 
 export const Loaded: React.FC<LoadedProps> = ({ filterPokemon }) => {
   return (
-    <div className={styles['cardList']}>
+    <div className={styles.cardList}>
       {filterPokemon?.map(pokemon => {
         return (
           <Card

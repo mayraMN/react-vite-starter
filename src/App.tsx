@@ -44,8 +44,15 @@ export function App() {
     setSearchValue(inputValue)
   }
   const filterPokemon = () => {
+    const searchValueLowerCase = searchValue.toLocaleLowerCase()
+
     return pokemons?.filter(pokemon => {
-      return pokemon.name.startsWith(searchValue.toLowerCase())
+      if (pokemon.name.startsWith(searchValueLowerCase)) {
+        return true
+      }
+      if (pokemon.types.some(type => type.startsWith(searchValueLowerCase))) {
+        return true
+      }
     })
   }
 
@@ -54,7 +61,7 @@ export function App() {
   return (
     <>
       <Header />
-      <div className={styles.mainContainer}>
+      <main className={styles.mainContainer}>
         <SearchBar onChange={onChange} />
         {apiError ? (
           <ErrorLoading />
@@ -69,7 +76,7 @@ export function App() {
             )}
           </>
         )}
-      </div>
+      </main>
       <Footer />
     </>
   )

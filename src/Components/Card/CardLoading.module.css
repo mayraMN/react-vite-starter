@@ -3,12 +3,11 @@
   justify-content: center;
   align-items: center;
 
-  width: 285px;
   height: 400px;
 
   background-color: var(--color-brand-100);
   border-radius: var(--radius-l);
-  border: var(--color-brand-0) solid var(--spacing-xs);
+  border: var(--color-brand-0) var(--spacing-xs) solid;
   box-shadow: var(--shadow-s);
 }
 

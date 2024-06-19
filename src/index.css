@@ -109,6 +109,10 @@
     --font-line-height-caption: 1rem;
   }
 }
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
   display: none;
+} */
+
+body {
+  overflow-y: scroll;
 }

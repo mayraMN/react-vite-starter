@@ -11,9 +11,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onChange }) => {
   }
   return (
     <>
-      <form action="" className={styles.searchBar}>
+      <form action="" className={styles.searchBar} onSubmit={event => event.preventDefault()}>
         <svg
-          className={styles.icon}
+          className={styles.searchIcon}
           width="40"
           height="40"
           viewBox="0 0 40 40"

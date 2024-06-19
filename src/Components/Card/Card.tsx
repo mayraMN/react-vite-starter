@@ -9,7 +9,6 @@ export const Card: React.FC<Pokemon> = ({
   weight,
   stats,
   image,
-  //isVisible,
 }) => {
   return (
     <article className={`${styles.card} ${styles[types[0]]}`}>

@@ -1,5 +1,8 @@
 .mainContainer {
-  padding-inline: 16px;
+  --headerHeight: 77px;
+  --footerHeight: 48px;
+  min-height: calc(100dvh - var(--headerHeight) - var(--footerHeight));
+  
+  padding-inline: var(--spacing-m);
   padding-block: var(--spacing-4xl);
-  min-height: calc(100dvh - 77px - 48px);
 }
