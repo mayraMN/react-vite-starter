@@ -13,24 +13,24 @@ export const Card: React.FC<Pokemon> = ({
 }) => {
   return (
     <article className={`${styles.card} ${styles[types[0]]}`}>
-      <header className={styles['card-header']}>
-        <h2 className={styles['name']}>{capitalizeFirstLetter(name)}</h2>
-        <div className={styles['number']}>#{formatIdNumber(id)}</div>
+      <header className={styles.cardHeader}>
+        <h2 className={styles.name}>{capitalizeFirstLetter(name)}</h2>
+        <div className={styles.number}>#{formatIdNumber(id)}</div>
       </header>
-      <div className={styles['card-info']}>
+      <div className={styles.cardInfo}>
         <img className={styles.image} src={image} alt="" />
-        <div className={styles['tags']}>
+        <div className={styles.tags}>
           {types.map(type => {
             return (
-              <div className={`${styles['tag']} ${styles[type]}`} key={type}>
+              <div className={`${styles.tag} ${styles[type]}`} key={type}>
                 {iconsDic[type]}
                 {capitalizeFirstLetter(type)}
               </div>
             )
           })}
         </div>
-        <div className={styles['chars']}>
-          <div className={styles['char-weight']}>
+        <div className={styles.weightAndHeight}>
+          <div className={styles.weight}>
             <svg
               width="40"
               height="40"
@@ -62,8 +62,8 @@ export const Card: React.FC<Pokemon> = ({
             </svg>
             <div>{weight / 10} kg</div>
           </div>
-          <div className={styles['chars-separator']}></div>
-          <div className={styles['char-length']}>
+          <div className={styles.weightAndHeightSeparator}></div>
+          <div className={styles.height}>
             <svg
               width="40"
               height="40"
@@ -124,12 +124,12 @@ export const Card: React.FC<Pokemon> = ({
             <div>{height / 10} m</div>
           </div>
         </div>
-        <ul className={styles['stats']}>
+        <ul className={styles.statList}>
           {stats.map((stat, index) => {
             return (
-              <li key={index} className={styles['stat-item']}>
-                <label className={styles['stat-values']}>
-                  <div className={styles['stat-name']}>{stat.name}</div>
+              <li key={index} className={styles.statItem}>
+                <label className={styles.statValue}>
+                  <div className={styles.statValueName}>{stat.name}</div>
                   <div>{formatIdNumber(stat.value)}</div>
                 </label>
 

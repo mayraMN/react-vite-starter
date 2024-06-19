@@ -3,7 +3,7 @@ import styles from '../CardList.module.css'
 
 export const Loading = () => {
   return (
-    <div className={styles['cards-list']}>
+    <div className={styles['cardList']}>
       <CardLoading />
       <CardLoading />
       <CardLoading />

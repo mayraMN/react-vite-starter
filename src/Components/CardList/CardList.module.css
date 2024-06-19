@@ -1,4 +1,4 @@
-.cards-list {
+.cardList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
   gap: var(--spacing-2xl);

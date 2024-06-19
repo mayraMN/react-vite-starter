@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
   height: 400px;
   padding: var(--spacing-xs);
 
@@ -11,9 +11,7 @@
   background-color: var(--color-type-grass);
 }
 
-
-
-.card-header {
+.cardHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +44,7 @@
   height: 140px;
 }
 
-.card-info {
+.cardInfo {
   /* margin-top: 102px; */
   display: flex;
   flex-direction: column;
@@ -86,7 +84,7 @@
   }
 }
 
-.chars {
+.weightAndHeight {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,27 +96,13 @@
   font-weight: var(--font-weight-caption);
 }
 
-.chars-separator {
+.weightAndHeightSeparator {
   height: 100%;
   width: 1px;
   background-color: var(--color-brand-100);
 }
 
-.char-weight {
-  display: flex;
-  align-items: center;
-
-  gap: var(--spacing-2xs);
-}
-
-.char-length {
-  display: flex;
-  align-items: center;
-
-  gap: var(--spacing-2xs);
-}
-
-.chars svg {
+.weightAndHeight svg {
   width: var(--spacing-l);
   height: var(--spacing-l);
   & path {
@@ -126,19 +110,33 @@
   }
 }
 
-.stats {
+.weight {
+  display: flex;
+  align-items: center;
+
+  gap: var(--spacing-2xs);
+}
+
+.height {
+  display: flex;
+  align-items: center;
+
+  gap: var(--spacing-2xs);
+}
+
+.statList {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3xs);
 }
 
-.stat-item {
+.statItem {
   display: flex;
   gap: var(--spacing-xs);
   align-items: center;
 }
 
-.stat-item > progress {
+.statItem > progress {
   width: 100%;
   height: var(--spacing-2xs);
   border-radius: var(--spacing-2xs);
@@ -146,25 +144,25 @@
   border: none;
   background-color: var(--color-brand-100);
 }
-.stat-item > progress::-webkit-progress-bar {
+.statItem > progress::-webkit-progress-bar {
   border-radius: var(--spacing-2xs);
 
   background-color: var(--color-brand-100);
 }
-.stat-item > progress::-webkit-progress-value {
+.statItem > progress::-webkit-progress-value {
   border-radius: var(--spacing-2xs);
 
   background-color: var(--color-brand-900);
 }
 
-.stat-item > progress::-moz-progress-bar {
+.statItem > progress::-moz-progress-bar {
   border-radius: var(--spacing-2xs);
 
   background-color: var(--color-brand-900);
   width: 0;
 }
 
-.stat-values {
+.statValue {
   display: flex;
   justify-content: space-between;
   min-width: 51px;
@@ -174,7 +172,7 @@
   font-weight: var(--font-weight-caption);
 }
 
-.stat-name {
+.statValueName {
   color: var(--color-brand-300);
 }
 

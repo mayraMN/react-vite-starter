@@ -9,7 +9,7 @@ type LoadedProps = {
 
 export const Loaded: React.FC<LoadedProps> = ({ filterPokemon }) => {
   return (
-    <div className={styles['cards-list']}>
+    <div className={styles['cardList']}>
       {filterPokemon?.map(pokemon => {
         return (
           <Card
