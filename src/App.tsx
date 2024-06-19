@@ -45,7 +45,7 @@ export function App() {
     setSearchValue(inputValue)
   }
   const filterPokemon = () => {
-    const searchValueLowerCase = searchValue.toLocaleLowerCase()
+    const searchValueLowerCase = searchValue.toLowerCase()
 
     return pokemons?.filter(pokemon => {
       if (pokemon.name.startsWith(searchValueLowerCase)) {
