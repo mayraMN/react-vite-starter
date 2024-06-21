@@ -1,10 +1,16 @@
 import { Pokemon } from '../domain/Pokemon.model'
+import { PokemonRepository } from '../domain/PokemonRepository'
 import { PokeApiRepository } from '../infraestructure/PokeApiRepository'
 
-const getAll = async (repository: PokeApiRepository): Promise<Pokemon[]> => {
+let repository: PokemonRepository
+
+const getAll = async (): Promise<Pokemon[]> => {
   return repository.get()
 }
 
 export const pokemonService = {
   getAll,
+  init: (pokeApi: PokeApiRepository) => {
+    repository = pokeApi
+  },
 }
