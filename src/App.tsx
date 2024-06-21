@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { pokemonService } from './core/services/pokemon.service'
 
 import { Header } from './Components/Header/Header'
 import { SearchBar } from './Components/SearchBar/SearchBar'
@@ -10,6 +9,7 @@ import { ErrorLoading } from './Components/ErrorLoading/ErrorLoading'
 import styles from './App.module.css'
 import { Pokemon } from './core/domain/Pokemon.model'
 import { CardList } from './Components/CardList/CardList'
+import { pokemonService } from './core/services/pokemon.service'
 
 export function App() {
   const [pokemons, setPokemons] = useState<Pokemon[] | undefined>(undefined)
@@ -19,7 +19,7 @@ export function App() {
   useEffect(() => {
     const firstRender = async () => {
       const results = await pokemonService.getAll()
-      if (results === null) {
+      if (results.length === 0) {
         setApiError(true)
         return
       }
@@ -57,10 +57,6 @@ export function App() {
         ) : (
           <>
             <CardList pokemons={filteredPokemons} />
-            {/* {pokemons === undefined && <Loading />}
-            {filteredPokemons?.length !== 0 && (
-              <Loaded filterPokemon={filteredPokemons} />
-            )} */}
             {filteredPokemons?.length === 0 && (
               <NoResults searchValue={searchValue} />
             )}
