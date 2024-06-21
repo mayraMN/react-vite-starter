@@ -30,4 +30,8 @@ describe('Render main page', () => {
     await userEvent.type(input, 'i')
     expect(screen.queryByText('Bulbasaur')).toBeNull()
   })
+  it.only('render loading cards', async () => {
+    render(<App />)
+    expect(screen.queryByTestId('cardListLoading')).not.toBeNull()
+  })
 })

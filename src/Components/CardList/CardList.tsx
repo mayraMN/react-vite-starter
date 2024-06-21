@@ -10,7 +10,7 @@ type CardListProps = {
 export const CardList: React.FC<CardListProps> = ({ pokemons }) => {
   if (pokemons === undefined) {
     return (
-      <div className={styles.cardList}>
+      <div className={styles.cardList} data-testid="cardListLoading">
         <CardLoading />
         <CardLoading />
         <CardLoading />
@@ -19,7 +19,7 @@ export const CardList: React.FC<CardListProps> = ({ pokemons }) => {
   }
 
   return (
-    <div className={styles.cardList}>
+    <div className={styles.cardList} data-testid="cardListLoaded">
       {pokemons?.map(pokemon => {
         return (
           <Card

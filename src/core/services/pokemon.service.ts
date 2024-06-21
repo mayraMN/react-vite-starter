@@ -1,6 +1,6 @@
-import { PokemonDTO } from '../../App'
+import { PokemonDTO } from '../domain/Pokemon.model'
 import { Pokemon, Stat } from '../domain/Pokemon.model'
-import { apiClient } from './apiClient.service'
+import { apiClient } from '../infraestructure/apiClient.service'
 
 const getAll = async (): Promise<Pokemon[] | null> => {
   try {
