@@ -10,15 +10,17 @@ import styles from './App.module.css'
 import { Pokemon } from './core/domain/Pokemon.model'
 import { CardList } from './Components/CardList/CardList'
 import { pokemonService } from './core/services/pokemon.service'
+import { PokeApiRepository } from './core/infraestructure/PokeApiRepository'
 
 export function App() {
   const [pokemons, setPokemons] = useState<Pokemon[] | undefined>(undefined)
   const [searchValue, setSearchValue] = useState<string>('')
   const [apiError, setApiError] = useState<boolean>(false)
+  const repository = new PokeApiRepository()
 
   useEffect(() => {
     const firstRender = async () => {
-      const results = await pokemonService.getAll()
+      const results = await pokemonService.getAll(repository)
       if (results.length === 0) {
         setApiError(true)
         return
