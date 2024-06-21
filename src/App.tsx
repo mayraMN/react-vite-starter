@@ -16,9 +16,9 @@ export function App() {
   const [pokemons, setPokemons] = useState<Pokemon[] | undefined>(undefined)
   const [searchValue, setSearchValue] = useState<string>('')
   const [apiError, setApiError] = useState<boolean>(false)
-  const repository = new PokeApiRepository()
 
   useEffect(() => {
+    const repository = new PokeApiRepository()
     const firstRender = async () => {
       const results = await pokemonService.getAll(repository)
       if (results.length === 0) {
