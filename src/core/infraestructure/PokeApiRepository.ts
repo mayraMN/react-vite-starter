@@ -1,9 +1,4 @@
-import {
-  MoveDTO,
-  PokemonDTO,
-  PokemonMoves,
-  Stat,
-} from '../domain/Pokemon.model'
+import { MoveDTO, PokemonDTO, Stat } from '../domain/Pokemon.model'
 import { PokemonRepository } from '../domain/PokemonRepository'
 import { apiClient } from './apiClient.service'
 
@@ -39,6 +34,14 @@ export class PokeApiRepository implements PokemonRepository {
         })
         const image = json.sprites.other['official-artwork'].front_default
 
+        const moves = json.moves.map(item => {
+          const moveName = item.move.name
+          const levelLearnedAt = item.version_group_details.map(item => {
+            return item.level_learned_at
+          })
+          return { move: moveName, levelLearnedAt: levelLearnedAt }
+        })
+
         return {
           name,
           id,
@@ -48,6 +51,7 @@ export class PokeApiRepository implements PokemonRepository {
           stats,
           image,
           isVisible: true,
+          moves,
         }
       })
       const results = await Promise.all(promises)
