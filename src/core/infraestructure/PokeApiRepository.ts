@@ -1,4 +1,11 @@
-import { MoveDTO, PokemonDTO, Stat } from '../domain/Pokemon.model'
+import {
+  Move,
+  MoveDTO,
+  Pokemon,
+  PokemonDTO,
+  PokemonMoves,
+  Stat,
+} from '../domain/Pokemon.model'
 import { PokemonRepository } from '../domain/PokemonRepository'
 import { apiClient } from './apiClient.service'
 
@@ -36,10 +43,15 @@ export class PokeApiRepository implements PokemonRepository {
 
         const moves = json.moves.map(item => {
           const moveName = item.move.name
+          const moveUrl = item.move.url
           const levelLearnedAt = item.version_group_details.map(item => {
             return item.level_learned_at
           })
-          return { move: moveName, levelLearnedAt: levelLearnedAt }
+          return {
+            moveName: moveName,
+            url: moveUrl,
+            levelLearnedAt: levelLearnedAt,
+          }
         })
 
         return {
@@ -61,9 +73,25 @@ export class PokeApiRepository implements PokemonRepository {
       return []
     }
   }
-  getMoves = async (pokemonName: string) => {
-    const json: MoveDTO = await apiClient.get(
-      `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,
-    )
+  getMoves = async (pokemonSelected: Pokemon) => {
+    const promises = pokemonSelected.moves.map(async moveItem => {
+      const json: MoveDTO = await apiClient.get(moveItem.url)
+      const name = json.name
+      const type = json.type.name
+      const accuracy = json.accuracy
+      const demage = json.power
+      const result: Move = { name, type, accuracy, demage }
+      return result
+    })
+
+    const moves = await Promise.all(promises)
+
+    const pokemonMoves: PokemonMoves = {
+      name: pokemonSelected.name,
+      id: pokemonSelected.id,
+      image: pokemonSelected.image,
+      moves: moves,
+    }
+    return pokemonMoves
   }
 }

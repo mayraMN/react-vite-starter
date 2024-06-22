@@ -22,7 +22,7 @@ export const CardList: React.FC<CardListProps> = ({ pokemons }) => {
             weight={pokemon.weight}
             stats={pokemon.stats}
             image={pokemon.image}
-            isVisible={pokemon.isVisible}
+            moves={pokemon.moves}
           />
         )
       })}
@@ -51,7 +51,7 @@ export const CardList: React.FC<CardListProps> = ({ pokemons }) => {
   //           weight={pokemon.weight}
   //           stats={pokemon.stats}
   //           image={pokemon.image}
-  //           isVisible={pokemon.isVisible}
+  //           moves={pokemon.moves}
   //         />
   //       )
   //     })}
