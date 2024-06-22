@@ -1,4 +1,9 @@
-import { PokemonDTO, Stat } from '../domain/Pokemon.model'
+import {
+  MoveDTO,
+  PokemonDTO,
+  PokemonMoves,
+  Stat,
+} from '../domain/Pokemon.model'
 import { PokemonRepository } from '../domain/PokemonRepository'
 import { apiClient } from './apiClient.service'
 
@@ -52,5 +57,10 @@ export class PokeApiRepository implements PokemonRepository {
     } catch (e) {
       return []
     }
+  }
+  getMoves = async (pokemonName: string) => {
+    const json: MoveDTO = await apiClient.get(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonName}`,
+    )
   }
 }

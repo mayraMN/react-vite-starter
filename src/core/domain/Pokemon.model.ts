@@ -23,3 +23,24 @@ export type PokemonDTO = {
   stats: { base_stat: number; stat: { name: string } }[]
   sprites: { other: { 'official-artwork': { front_default: string } } }
 }
+
+type Move = {
+  name: string
+  type: string
+  accuracy?: number
+  demage?: number
+}
+
+export type MoveDTO = {
+  accuracy: number
+  name: string
+  power: number
+  type: { name: string }
+}
+
+export type PokemonMoves = {
+  name: string
+  id: number
+  image: string
+  moves: Move[]
+}

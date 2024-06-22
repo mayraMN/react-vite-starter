@@ -1,6 +1,7 @@
 import { Pokemon } from '../../core/domain/Pokemon.model'
 import { Card } from '../Card/Card'
 import { CardLoading } from '../Card/CardLoading'
+import { CardReverse } from '../Card/CardReverse'
 import styles from './CardList.module.css'
 
 type CardListProps = {
@@ -8,21 +9,11 @@ type CardListProps = {
 }
 
 export const CardList: React.FC<CardListProps> = ({ pokemons }) => {
-  if (pokemons === undefined) {
-    return (
-      <div className={styles.cardList} data-testid="cardListLoading">
-        <CardLoading />
-        <CardLoading />
-        <CardLoading />
-      </div>
-    )
-  }
-
   return (
     <div className={styles.cardList} data-testid="cardListLoaded">
       {pokemons?.map(pokemon => {
         return (
-          <Card
+          <CardReverse
             key={pokemon.id}
             name={pokemon.name}
             id={pokemon.id}
@@ -37,4 +28,32 @@ export const CardList: React.FC<CardListProps> = ({ pokemons }) => {
       })}
     </div>
   )
+  // if (pokemons === undefined) {
+  //   return (
+  //     <div className={styles.cardList} data-testid="cardListLoading">
+  //       <CardLoading />
+  //       <CardLoading />
+  //       <CardLoading />
+  //     </div>
+  //   )
+  // }
+
+  // return (
+  //   <div className={styles.cardList} data-testid="cardListLoaded">
+  //     {pokemons?.map(pokemon => {
+  //       return (
+  //         <Card
+  //           key={pokemon.id}
+  //           name={pokemon.name}
+  //           id={pokemon.id}
+  //           types={pokemon.types}
+  //           height={pokemon.height}
+  //           weight={pokemon.weight}
+  //           stats={pokemon.stats}
+  //           image={pokemon.image}
+  //           isVisible={pokemon.isVisible}
+  //         />
+  //       )
+  //     })}
+  //   </div>
 }

@@ -1,0 +1,144 @@
+.cardReverse {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 400px;
+  padding: var(--spacing-xs);
+
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-s);
+  background-color: var(--color-type-grass);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 var(--spacing-xs);
+}
+
+.name {
+  font-size: var(--font-size-headline);
+  line-height: var(--font-line-height-headline);
+  font-weight: var(--font-weight-headline);
+
+  color: var(--color-brand-0);
+}
+
+.number {
+  font-size: var(--font-size-subheadline);
+  line-height: var(--font-line-height-subheadline);
+  font-weight: var(--font-weight-subheadline);
+
+  color: var(--color-brand-0);
+  opacity: 50%;
+}
+
+.level {
+  font-size: var(--font-size-subheadline);
+  line-height: var(--font-line-height-subheadline);
+  font-weight: var(--font-weight-subheadline);
+}
+
+.image {
+  margin: auto;
+  margin-top: -100px;
+
+  width: 140px;
+  height: 140px;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: var(--spacing-s) var(--spacing-xs);
+
+  background: var(--color-brand-0);
+  border-radius: var(--radius-l);
+}
+
+.tags {
+  gap: var(--spacing-xs);
+}
+
+.tag {
+  font-size: var(--font-size-caption);
+  line-height: var(--font-line-height-caption);
+  font-weight: var(--font-weight-caption);
+
+  padding: var(--spacing-3xs) var(--spacing-xs);
+
+  color: var(--color-brand-0);
+  border-radius: var(--radius-2xl);
+}
+
+.tag svg {
+  width: var(--spacing-m);
+  height: var(--spacing-m);
+  & path {
+    fill: var(--color-brand-0);
+  }
+}
+
+.grass {
+  background-color: var(--color-type-grass);
+}
+.bug {
+  background-color: var(--color-type-bug);
+}
+.electric {
+  background-color: var(--color-type-electric);
+}
+.ground {
+  background-color: var(--color-type-ground);
+}
+.fire {
+  background-color: var(--color-type-fire);
+}
+.fighting {
+  background-color: var(--color-type-fighting);
+}
+.poison {
+  background-color: var(--color-type-poison);
+}
+.psychic {
+  background-color: var(--color-type-psychic);
+}
+.fairy {
+  background-color: var(--color-type-fairy);
+}
+.dragon {
+  background-color: var(--color-type-dragon);
+}
+.flying {
+  background-color: var(--color-type-flying);
+}
+.ghost {
+  background-color: var(--color-type-ghost);
+}
+.water {
+  background-color: var(--color-type-water);
+}
+.ice {
+  background-color: var(--color-type-ice);
+}
+.normal {
+  background-color: var(--color-type-normal);
+}
+.rock {
+  background-color: var(--color-type-rock);
+}
+.steel {
+  background-color: var(--color-type-steel);
+}
+.dark {
+  background-color: var(--color-type-dark);
+}
