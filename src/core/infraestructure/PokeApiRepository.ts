@@ -50,7 +50,6 @@ export class PokeApiRepository implements PokemonRepository {
           weight,
           stats,
           image,
-          isVisible: true,
           moves,
         }
       })

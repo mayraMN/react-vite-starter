@@ -11,7 +11,6 @@ export type Pokemon = {
   weight: number
   stats: Stat[]
   image: string
-  isVisible: boolean
   moves: { move: string; levelLearnedAt: number[] }[]
 }
 
