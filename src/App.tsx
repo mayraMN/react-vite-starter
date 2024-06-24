@@ -37,8 +37,7 @@ export function App() {
   }
   const filterPokemon = () => {
     const searchValueLowerCase = searchValue.toLowerCase()
-
-    return pokemons?.filter(pokemon => {
+    const filteredPokemons = pokemons?.filter(pokemon => {
       if (pokemon.name.startsWith(searchValueLowerCase)) {
         return true
       }
@@ -46,6 +45,8 @@ export function App() {
         return true
       }
     })
+    // if (filterPokemon !== undefined) return filteredPokemons
+    return filteredPokemons
   }
 
   const filteredPokemons = filterPokemon()

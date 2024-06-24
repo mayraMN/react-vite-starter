@@ -1,25 +1,24 @@
 import styles from './Card.module.css'
 import { capitalizeFirstLetter, formatIdNumber, iconsDic } from '../Utils/Utils'
 import { Pokemon } from '../../core/domain/Pokemon.model'
-export const Card: React.FC<Pokemon> = ({
-  name,
-  id,
-  types,
-  height,
-  weight,
-  stats,
-  image,
-}) => {
+type Props = {
+  pokemon: Pokemon
+  onClick: (pokemon: Pokemon) => void
+}
+export const Card: React.FC<Props> = ({ pokemon, onClick }) => {
   return (
-    <article className={`${styles.card} ${styles[types[0]]}`}>
+    <article
+      className={`${styles.card} ${styles[pokemon.types[0]]}`}
+      onClick={() => onClick(pokemon)}
+    >
       <header className={styles.cardHeader}>
-        <h2 className={styles.name}>{capitalizeFirstLetter(name)}</h2>
-        <div className={styles.number}>#{formatIdNumber(id)}</div>
+        <h2 className={styles.name}>{capitalizeFirstLetter(pokemon.name)}</h2>
+        <div className={styles.number}>#{formatIdNumber(pokemon.id)}</div>
       </header>
       <div className={styles.cardInfo}>
-        <img className={styles.image} src={image} alt="" />
+        <img className={styles.image} src={pokemon.image} alt="" />
         <div className={styles.tags}>
-          {types.map(type => {
+          {pokemon.types.map(type => {
             return (
               <div className={`${styles.tag} ${styles[type]}`} key={type}>
                 {iconsDic[type]}
@@ -59,7 +58,7 @@ export const Card: React.FC<Pokemon> = ({
                 </clipPath>
               </defs>
             </svg>
-            <div>{weight / 10} kg</div>
+            <div>{pokemon.weight / 10} kg</div>
           </div>
           <div className={styles.weightAndHeightSeparator}></div>
           <div className={styles.height}>
@@ -120,11 +119,11 @@ export const Card: React.FC<Pokemon> = ({
                 </clipPath>
               </defs>
             </svg>
-            <div>{height / 10} m</div>
+            <div>{pokemon.height / 10} m</div>
           </div>
         </div>
         <ul className={styles.statList}>
-          {stats.map((stat, index) => {
+          {pokemon.stats.map((stat, index) => {
             return (
               <li key={index} className={styles.statItem}>
                 <label className={styles.statValue}>

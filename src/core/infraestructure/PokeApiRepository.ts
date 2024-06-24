@@ -53,7 +53,7 @@ export class PokeApiRepository implements PokemonRepository {
             levelLearnedAt: levelLearnedAt,
           }
         })
-
+        const showBack = false
         return {
           name,
           id,
@@ -63,6 +63,7 @@ export class PokeApiRepository implements PokemonRepository {
           stats,
           image,
           moves,
+          showBack,
         }
       })
       const results = await Promise.all(promises)
