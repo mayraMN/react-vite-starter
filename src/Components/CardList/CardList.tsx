@@ -57,14 +57,18 @@ export const CardList: React.FC<CardListProps> = ({ pokemons }) => {
           <div
             className={`${styles.cardContainer} ${showBack && styles.showBack}`}
           >
-            <div className={`${styles.front} ${styles.card}`}>
+            <div
+              className={` ${styles.cardContainer} ${styles.front} ${styles.card} `}
+            >
               <Card
                 key={pokemon.id}
                 pokemon={pokemon}
                 onClick={handleClick}
               ></Card>
             </div>
-            <div className={`${styles.back} ${styles.card}`}>
+            <div
+              className={` ${styles.cardContainer} ${styles.back} ${styles.card}`}
+            >
               <CardReverse
                 key={pokemon.id}
                 pokemon={pokemon}

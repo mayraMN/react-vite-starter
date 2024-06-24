@@ -6,31 +6,22 @@
   max-width: 920px;
 
   margin-inline: auto;
-  border: 2px solid red;
 }
 .cardContainer {
-  border: 1px solid blue;
   position: relative;
   cursor: pointer;
   transform-style: preserve-3d;
-  transform-origin: center right;
+  transform-origin: center;
   transition: transform 1s;
+  backface-visibility: hidden;
   &.showBack {
-    border: 1px solid orange;
-    transform: translateX(-100%) rotateY(-180deg);
+    transform: rotateY(-180deg);
   }
 }
-/* .cardContainer showBack {
-  transform: translateX(-100%) rotateY(-180deg);
-} */
-
-/* .card {
-  position: relative;
-  &.showBack {
-    transform: translateX(-100%) rotateY(-180deg);
-  }
-} */
-
-/* .showBack {
-  transform: translateX(-100%) rotateY(-180deg);
-} */
+.back {
+  transform: rotateY(180deg);
+}
+.front {
+  position: absolute;
+  width: 100%;
+}
