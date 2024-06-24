@@ -16,7 +16,7 @@
   transform-origin: center right;
   transition: transform 1s;
   &.showBack {
-    background-color: red;
+    border: 1px solid orange;
     transform: translateX(-100%) rotateY(-180deg);
   }
 }
