@@ -7,19 +7,16 @@ import styles from './CardList.module.css'
 
 type CardListProps = {
   pokemons: Pokemon[] | undefined
-  getPokemons: (pokemon: Pokemon) => Promise<Move[]>
+  getMoves: (pokemon: Pokemon) => Promise<Move[]>
 }
 
-export const CardList: React.FC<CardListProps> = ({
-  pokemons,
-  getPokemons,
-}) => {
+export const CardList: React.FC<CardListProps> = ({ pokemons, getMoves }) => {
   const [cardsState, setCardsState] = useState<Pokemon[] | undefined>(pokemons)
 
   const handleClick = async (pokemon: Pokemon) => {
     console.log(pokemon.name)
     const pokemonName = pokemon.name
-    const pokemonMoves = await getPokemons(pokemon)
+    const pokemonMoves = await getMoves(pokemon)
     setCardsState(prev =>
       prev?.map(pokemon => {
         if (pokemon.name === pokemonName) {

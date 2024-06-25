@@ -36,12 +36,6 @@
   opacity: 50%;
 }
 
-.level {
-  font-size: var(--font-size-subheadline);
-  line-height: var(--font-line-height-subheadline);
-  font-weight: var(--font-weight-subheadline);
-}
-
 .image {
   margin: auto;
   margin-top: -100px;

@@ -21,7 +21,7 @@ export function App() {
 
   useEffect(() => {
     const firstRender = async () => {
-      const results = await pokemonService.getAll()
+      const results = await pokemonService.getPokemons()
       if (results.length === 0) {
         setApiError(true)
         return
@@ -62,7 +62,7 @@ export function App() {
           <>
             <CardList
               pokemons={filteredPokemons}
-              getPokemons={pokemonService.getPokemonAttack}
+              getMoves={pokemonService.getMoves}
             />
             {filteredPokemons?.length === 0 && (
               <NoResults searchValue={searchValue} />

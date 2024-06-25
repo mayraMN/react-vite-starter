@@ -17,7 +17,6 @@ export const CardReverse: React.FC<Props> = ({ pokemon, onClick }) => {
         <div className={styles.number}>#{formatIdNumber(pokemon.id)}</div>
       </header>
       <div className={styles.cardInfo}>
-        <p>Level 1</p>
         <img className={styles.image} src={pokemon.image} alt="" />
         <div className={styles.tags}>
           {pokemon.moves.map(move => {
