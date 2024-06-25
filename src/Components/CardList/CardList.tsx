@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Move, Pokemon } from '../../core/domain/Pokemon.model'
 import { Card } from '../Card/Card'
 import { CardLoading } from '../Card/CardLoading'
@@ -8,17 +7,20 @@ import styles from './CardList.module.css'
 type CardListProps = {
   pokemons: Pokemon[] | undefined
   getMoves: (pokemon: Pokemon) => Promise<Move[]>
+  onPokemonClicked: (pokemons: Pokemon[] | undefined) => void
 }
 
-export const CardList: React.FC<CardListProps> = ({ pokemons, getMoves }) => {
-  const [cardsState, setCardsState] = useState<Pokemon[] | undefined>(pokemons)
-
+export const CardList: React.FC<CardListProps> = ({
+  pokemons,
+  getMoves,
+  onPokemonClicked,
+}) => {
   const handleClick = async (pokemon: Pokemon) => {
     console.log(pokemon.name)
     const pokemonName = pokemon.name
     const pokemonMoves = await getMoves(pokemon)
-    setCardsState(prev =>
-      prev?.map(pokemon => {
+    onPokemonClicked(
+      pokemons?.map(pokemon => {
         if (pokemon.name === pokemonName) {
           return {
             name: pokemon.name,
@@ -46,13 +48,10 @@ export const CardList: React.FC<CardListProps> = ({ pokemons, getMoves }) => {
       </div>
     )
   }
-  if (pokemons.length > 0 && cardsState === undefined) {
-    setCardsState(pokemons)
-  }
 
   return (
     <div className={styles.cardList} data-testid="cardListLoaded">
-      {cardsState?.map(pokemon => {
+      {pokemons?.map(pokemon => {
         const showBack = pokemon.showBack ? 'showBack' : ''
         return (
           <div

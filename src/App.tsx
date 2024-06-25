@@ -51,6 +51,10 @@ export function App() {
 
   const filteredPokemons = filterPokemon()
 
+  function handleClick(pokemons: Pokemon[] | undefined) {
+    setPokemons(pokemons)
+  }
+
   return (
     <>
       <Header />
@@ -63,6 +67,7 @@ export function App() {
             <CardList
               pokemons={filteredPokemons}
               getMoves={pokemonService.getMoves}
+              onPokemonClicked={handleClick}
             />
             {filteredPokemons?.length === 0 && (
               <NoResults searchValue={searchValue} />
