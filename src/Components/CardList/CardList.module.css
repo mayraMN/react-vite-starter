@@ -18,9 +18,9 @@
     transform: rotateY(-180deg);
   }
 }
-.card {
+/* .card:hover {
   transform: scale(1.05);
-}
+} */
 .back {
   transform: rotateY(180deg);
 }

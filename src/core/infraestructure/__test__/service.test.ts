@@ -14,6 +14,6 @@ describe('ApiClient services', () => {
     vi.spyOn(apiClient, 'get')
       .mockResolvedValueOnce(pokemonGenerationOneMock)
       .mockResolvedValueOnce(bulbasaurMockApi)
-    expect(await pokemonService.getAll()).toEqual(bulbasaur)
+    expect(await pokemonService.getPokemons()).toEqual(bulbasaur)
   })
 })

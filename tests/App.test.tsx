@@ -17,14 +17,14 @@ describe('Render main page', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument()
   })
   it('Render bulbasaur card', async () => {
-    vi.spyOn(pokemonService, 'getAll').mockResolvedValue(pokemonsMock)
+    vi.spyOn(pokemonService, 'getPokemons').mockResolvedValue(pokemonsMock)
     render(<App />)
 
     const pokemonTitle = await screen.findByText('Bulbasaur')
     expect(pokemonTitle).toBeInTheDocument()
   })
   it('Not render bulbasaur after filter by i', async () => {
-    vi.spyOn(pokemonService, 'getAll').mockResolvedValue(pokemonsMock)
+    vi.spyOn(pokemonService, 'getPokemons').mockResolvedValue(pokemonsMock)
     render(<App />)
     const input = screen.getByRole('textbox')
     await userEvent.type(input, 'i')

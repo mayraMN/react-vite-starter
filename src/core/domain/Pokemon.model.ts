@@ -44,10 +44,3 @@ export type MoveDTO = {
   power: number
   type: { name: string }
 }
-
-export type PokemonMoves = {
-  name: string
-  id: number
-  image: string
-  moves: Move[]
-}

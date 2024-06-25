@@ -9,6 +9,10 @@
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-s);
   background-color: var(--color-type-grass);
+
+  /* &:hover {
+    transform: scale(1.05);
+  } */
 }
 
 .cardHeader {
@@ -56,10 +60,16 @@
 }
 
 .tags {
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-xs);
 }
 
 .tag {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+
   font-size: var(--font-size-caption);
   line-height: var(--font-line-height-caption);
   font-weight: var(--font-weight-caption);

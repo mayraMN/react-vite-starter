@@ -33,6 +33,11 @@ export function App() {
   }, [])
 
   const onChange = (inputValue: string) => {
+    setPokemons(pokemons =>
+      pokemons?.map(pokemon => {
+        return { ...pokemon, showBack: false }
+      }),
+    )
     setSearchValue(inputValue)
   }
   const filterPokemon = () => {
