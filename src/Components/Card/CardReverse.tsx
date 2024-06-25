@@ -1,5 +1,5 @@
 import styles from './CardReverse.module.css'
-import { capitalizeFirstLetter, formatIdNumber, iconsDic } from '../Utils/Utils'
+import { capitalizeFirstLetter, formatIdNumber } from '../Utils/Utils'
 import { Pokemon } from '../../core/domain/Pokemon.model'
 
 type Props = {
@@ -20,11 +20,14 @@ export const CardReverse: React.FC<Props> = ({ pokemon, onClick }) => {
         <p>Level 1</p>
         <img className={styles.image} src={pokemon.image} alt="" />
         <div className={styles.tags}>
-          {pokemon.types.map(type => {
+          {pokemon.moves.map(move => {
             return (
-              <div className={`${styles.tag} ${styles[type]}`} key={type}>
-                {iconsDic[type]}
-                {capitalizeFirstLetter(type)}
+              <div
+                className={`${styles.tag} ${styles[move.type]}`}
+                key={move.name}
+              >
+                {/* {iconsDic[type]} */}
+                {capitalizeFirstLetter(move.name)}
               </div>
             )
           })}

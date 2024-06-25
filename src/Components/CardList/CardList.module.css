@@ -18,6 +18,9 @@
     transform: rotateY(-180deg);
   }
 }
+.card {
+  transform: scale(1.05);
+}
 .back {
   transform: rotateY(180deg);
 }

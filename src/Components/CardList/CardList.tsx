@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Pokemon } from '../../core/domain/Pokemon.model'
+import { Move, Pokemon } from '../../core/domain/Pokemon.model'
 import { Card } from '../Card/Card'
 import { CardLoading } from '../Card/CardLoading'
 import { CardReverse } from '../Card/CardReverse'
@@ -7,18 +7,23 @@ import styles from './CardList.module.css'
 
 type CardListProps = {
   pokemons: Pokemon[] | undefined
+  getPokemons: (pokemon: Pokemon) => Promise<Move[]>
 }
 
-export const CardList: React.FC<CardListProps> = ({ pokemons }) => {
+export const CardList: React.FC<CardListProps> = ({
+  pokemons,
+  getPokemons,
+}) => {
   const [cardsState, setCardsState] = useState<Pokemon[] | undefined>(pokemons)
 
-  const handleClick = (pokemon: Pokemon) => {
+  const handleClick = async (pokemon: Pokemon) => {
     console.log(pokemon.name)
     const pokemonName = pokemon.name
-
+    const pokemonMoves = await getPokemons(pokemon)
     setCardsState(prev =>
       prev?.map(pokemon => {
         if (pokemon.name === pokemonName) {
+          if(pokemon.)
           return {
             name: pokemon.name,
             id: pokemon.id,
@@ -27,7 +32,8 @@ export const CardList: React.FC<CardListProps> = ({ pokemons }) => {
             weight: pokemon.weight,
             stats: pokemon.stats,
             image: pokemon.image,
-            moves: pokemon.moves,
+            movesInfo: pokemon.movesInfo,
+            moves: pokemonMoves,
             showBack: !pokemon.showBack,
           }
         }
@@ -52,7 +58,6 @@ export const CardList: React.FC<CardListProps> = ({ pokemons }) => {
     <div className={styles.cardList} data-testid="cardListLoaded">
       {cardsState?.map(pokemon => {
         const showBack = pokemon.showBack ? 'showBack' : ''
-        // return <Card key={pokemon.id} pokemon={pokemon} onClick={handleClick} />
         return (
           <div
             className={`${styles.cardContainer} ${showBack && styles.showBack}`}

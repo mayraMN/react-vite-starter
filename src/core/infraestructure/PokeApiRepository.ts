@@ -3,7 +3,6 @@ import {
   MoveDTO,
   Pokemon,
   PokemonDTO,
-  PokemonMoves,
   Stat,
 } from '../domain/Pokemon.model'
 import { PokemonRepository } from '../domain/PokemonRepository'
@@ -41,19 +40,21 @@ export class PokeApiRepository implements PokemonRepository {
         })
         const image = json.sprites.other['official-artwork'].front_default
 
-        const moves = json.moves.map(item => {
+        const movesInfo = json.moves.map(item => {
           const moveName = item.move.name
           const moveUrl = item.move.url
           const levelLearnedAt = item.version_group_details.map(item => {
             return item.level_learned_at
           })
+          // const leveLearnedAt = 1;
           return {
             moveName: moveName,
             url: moveUrl,
-            levelLearnedAt: levelLearnedAt,
+            levelLearnedAt: levelLearnedAt.sort()[0],
           }
         })
         const showBack = false
+        const moves: Move[] = []
         return {
           name,
           id,
@@ -62,6 +63,7 @@ export class PokeApiRepository implements PokemonRepository {
           weight,
           stats,
           image,
+          movesInfo,
           moves,
           showBack,
         }
@@ -75,24 +77,19 @@ export class PokeApiRepository implements PokemonRepository {
     }
   }
   getMoves = async (pokemonSelected: Pokemon) => {
-    const promises = pokemonSelected.moves.map(async moveItem => {
+    const promises = pokemonSelected.movesInfo.map(async moveItem => {
       const json: MoveDTO = await apiClient.get(moveItem.url)
       const name = json.name
       const type = json.type.name
+      const levelLearnedAt = moveItem.levelLearnedAt
       const accuracy = json.accuracy
       const demage = json.power
-      const result: Move = { name, type, accuracy, demage }
+      const result: Move = { name, type, levelLearnedAt, accuracy, demage }
       return result
     })
 
     const moves = await Promise.all(promises)
 
-    const pokemonMoves: PokemonMoves = {
-      name: pokemonSelected.name,
-      id: pokemonSelected.id,
-      image: pokemonSelected.image,
-      moves: moves,
-    }
-    return pokemonMoves
+    return moves
   }
 }

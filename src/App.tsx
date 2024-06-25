@@ -60,7 +60,10 @@ export function App() {
           <ErrorLoading />
         ) : (
           <>
-            <CardList pokemons={filteredPokemons} />
+            <CardList
+              pokemons={filteredPokemons}
+              getPokemons={pokemonService.getPokemonAttack}
+            />
             {filteredPokemons?.length === 0 && (
               <NoResults searchValue={searchValue} />
             )}

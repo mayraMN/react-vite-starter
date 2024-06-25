@@ -7,7 +7,9 @@ let repository: PokemonRepository
 const getAll = async (): Promise<Pokemon[]> => {
   return repository.get()
 }
-const getPokemonAttack = async () => {}
+const getPokemonAttack = async (pokemon: Pokemon) => {
+  return repository.getMoves(pokemon)
+}
 
 export const pokemonService = {
   getAll,

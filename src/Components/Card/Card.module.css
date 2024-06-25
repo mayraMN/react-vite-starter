@@ -11,9 +11,9 @@
   background-color: var(--color-type-grass);
 }
 
-.card:hover {
+/* .card:hover {
   transform: scale(1.05);
-}
+} */
 
 .cardHeader {
   display: flex;
