@@ -1,6 +1,6 @@
 import { Move, Pokemon } from './Pokemon.model'
 
 export interface PokemonRepository {
-  get: () => Promise<Pokemon[]>
+  getPokemons: () => Promise<Pokemon[]>
   getMoves: (pokemonSelected: Pokemon) => Promise<Move[]>
 }

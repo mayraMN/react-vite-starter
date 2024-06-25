@@ -23,7 +23,6 @@ export const CardList: React.FC<CardListProps> = ({
     setCardsState(prev =>
       prev?.map(pokemon => {
         if (pokemon.name === pokemonName) {
-          if(pokemon.)
           return {
             name: pokemon.name,
             id: pokemon.id,

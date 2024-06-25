@@ -9,7 +9,7 @@ import { PokemonRepository } from '../domain/PokemonRepository'
 import { apiClient } from './apiClient.service'
 
 export class PokeApiRepository implements PokemonRepository {
-  get = async () => {
+  getPokemons = async () => {
     try {
       const json = await apiClient.get('https://pokeapi.co/api/v2/generation/1')
       const pokemons: { name: string; url: string }[] = json.pokemon_species
@@ -41,16 +41,16 @@ export class PokeApiRepository implements PokemonRepository {
         const image = json.sprites.other['official-artwork'].front_default
 
         const movesInfo = json.moves.map(item => {
-          const moveName = item.move.name
           const moveUrl = item.move.url
-          const levelLearnedAt = item.version_group_details.map(item => {
-            return item.level_learned_at
-          })
+          const levelLearnedAt = item.version_group_details
+            .map(item => {
+              return item.level_learned_at
+            })
+            .sort()[0]
           // const leveLearnedAt = 1;
           return {
-            moveName: moveName,
             url: moveUrl,
-            levelLearnedAt: levelLearnedAt.sort()[0],
+            levelLearnedAt: levelLearnedAt,
           }
         })
         const showBack = false
@@ -77,19 +77,24 @@ export class PokeApiRepository implements PokemonRepository {
     }
   }
   getMoves = async (pokemonSelected: Pokemon) => {
-    const promises = pokemonSelected.movesInfo.map(async moveItem => {
+    const movesSorted = pokemonSelected.movesInfo.sort(
+      (moveInfo1, moveInfo2) =>
+        moveInfo1.levelLearnedAt - moveInfo2.levelLearnedAt,
+    )
+    const movesSelected = movesSorted.slice(0, 4)
+    const promises = movesSelected.map(async moveItem => {
       const json: MoveDTO = await apiClient.get(moveItem.url)
       const name = json.name
       const type = json.type.name
       const levelLearnedAt = moveItem.levelLearnedAt
       const accuracy = json.accuracy
-      const demage = json.power
-      const result: Move = { name, type, levelLearnedAt, accuracy, demage }
+      const damage = json.power
+      const result: Move = { name, type, levelLearnedAt, accuracy, damage }
       return result
     })
 
     const moves = await Promise.all(promises)
-
+    console.log(moves)
     return moves
   }
 }

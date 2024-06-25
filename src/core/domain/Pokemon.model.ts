@@ -11,7 +11,7 @@ export type Pokemon = {
   weight: number
   stats: Stat[]
   image: string
-  movesInfo: { moveName: string; url: string; levelLearnedAt: number[] }[]
+  movesInfo: { url: string; levelLearnedAt: number }[]
   moves: Move[]
   showBack: boolean
 }
@@ -35,7 +35,7 @@ export type Move = {
   type: string
   levelLearnedAt: number
   accuracy?: number
-  demage?: number
+  damage?: number
 }
 
 export type MoveDTO = {
